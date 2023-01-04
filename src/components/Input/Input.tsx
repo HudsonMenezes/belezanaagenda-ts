@@ -1,5 +1,5 @@
 import { ChangeEvent, FocusEvent } from "react";
-import { Style } from "./style";
+import { Style, Error } from "./style";
 
 interface InputProps {
   name?: string;
@@ -36,6 +36,7 @@ const Input: React.FC<InputProps> = ({
         onBlur={onBlur}
         {...rest}
       ></input>
+      {erro && <Error>{erro}</Error>}
     </Style>
   );
 };
