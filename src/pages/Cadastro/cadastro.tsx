@@ -1,24 +1,20 @@
 import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
 import { FormEvent } from "react";
-
 import { FormStyle } from "./styles";
 import { ButtonStyle } from "../../components/Button/style";
-
 import logo from "../../assets/logo.png";
+import Error from "../../components/Helper/Error";
+import Button from "../../components/Button/Button";
 
 function Cadastro() {
-  const nome = useForm();
-  const email = useForm();
-  const senha = useForm();
-  const telefone = useForm();
+  const nome = useForm("nome");
+  const email = useForm("email");
+  const senha = useForm("senha");
+  const telefone = useForm("number");
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    console.log(nome.value);
-    console.log(email.value);
-    console.log(senha.value);
-    console.log(telefone.value);
   }
 
   return (
@@ -49,15 +45,14 @@ function Cadastro() {
         />
         <Input
           label="Telefone"
-          type="number"
+          type="text"
           placeholder="Telefone"
           name="phone"
           {...telefone}
         />
 
-        <ButtonStyle type="submit" className="btn text-black px-5 fw-bold">
-          Cadastrar
-        </ButtonStyle>
+        <Button>Cadastrar</Button>
+        {/* <Error error={} /> */}
       </FormStyle>
     </div>
   );
