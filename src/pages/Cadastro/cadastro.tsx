@@ -16,9 +16,9 @@ function Cadastro() {
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     console.log(nome.value);
-    console.log(email);
-    console.log(senha);
-    console.log(telefone);
+    console.log(email.value);
+    console.log(senha.value);
+    console.log(telefone.value);
   }
 
   return (
@@ -55,7 +55,7 @@ function Cadastro() {
           {...telefone}
         />
 
-        <ButtonStyle type="submit" className="btn text-black px-5 fs-5 fw-bold">
+        <ButtonStyle type="submit" className="btn text-black px-5 fw-bold">
           Cadastrar
         </ButtonStyle>
       </FormStyle>

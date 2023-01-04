@@ -6,6 +6,8 @@ import {
   Routes as WrapperRoutes,
   Route,
 } from "react-router-dom";
+import CadastroConcluido from "./pages/CadastroConcluido/CadastroConcluido";
+import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 
 export default function Routes() {
   return (
@@ -14,6 +16,8 @@ export default function Routes() {
         <WrapperRoutes>
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/cadastroconcluido" element={<CadastroConcluido />} />
+          <Route path="/paginainicial" element={<PaginaInicial />} />
         </WrapperRoutes>
       </BrowserRouter>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 // import "./PaginaInicial.css";
 
-// import Header from "../../Components/Header/Header";
+import Header from "../../components/Header/Header";
 
 import BannerSalao from "../../assets/bannersalao.png";
 import BannerServicos from "../../assets/bannerservicos.png";
@@ -9,7 +9,7 @@ import BannerServicos from "../../assets/bannerservicos.png";
 function PaginaInicial() {
   return (
     <div className="container">
-      {/* <Header /> */}
+      <Header />
 
       <section className="banner">
         <img src={BannerSalao} alt="Banner Salão" className="bannersalao" />

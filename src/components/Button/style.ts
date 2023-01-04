@@ -5,5 +5,7 @@ export const ButtonStyle = styled.button`
     #d9d9d9;
   border-radius: 15px;
   font-weight: 700;
-  border-style: none:
+  border-style: none;
+  width: 190px;
+  height: 53px;
 `;

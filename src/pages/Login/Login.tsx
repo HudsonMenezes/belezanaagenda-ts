@@ -1,36 +1,41 @@
 import React from "react";
 
 import { LogoStyle, Input, Hr, MiniImg } from "./Styles";
+import { ButtonStyle } from "../../components/Button/style";
 
 import logo from "../../assets/logo.png";
 import appleLogo from "../../assets/appleLogo.png";
 import googleLogo from "../../assets/googleLogo.png";
 import facebookLogo from "../../assets/facebookLogo.png";
-import { Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
+import { FormEvent } from "react";
+// import Cadastro from '../Cadastro/cadastro';
 
 export function Login() {
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    <Navigate to="/cadastro" />;
+  }
+
   return (
     <div>
       <LogoStyle src={logo} alt="logo" />
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input type="text" placeholder="Login" />
         <Input type="password" placeholder="Senha" />
+        <ButtonStyle>
+          <Link to="/cadastro" className="btn text-black px-5 fw-bold">
+            Entrar
+          </Link>
+        </ButtonStyle>
       </form>
-      <Link className="btn text-black px-5 fs-5 fw-bold" to="/cadastro">
-        Entrar
-      </Link>
+
       <div className="d-flex justify-content-around mt-4">
         <Hr className="linhaLogin" />
         <p>Ou entre com: </p>
         <Hr className="linhaLogin" />
       </div>
-      <Link
-        to="/cadastro"
-        type="button"
-        className="btn text-black px-5 fs-5 fw-bold"
-      >
-        Entrar
-      </Link>
+
       <div>
         <MiniImg src={appleLogo} alt="applelogo" />
         <MiniImg src={googleLogo} alt="googlelogo" />
