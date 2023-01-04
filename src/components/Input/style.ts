@@ -27,8 +27,13 @@ const Style = styled.div`
     padding-bottom: 0.5rem;
   }
 `;
+const Error = styled.p`
+  color: #f31;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+`;
 
-export { Style };
+export { Style, Error };
 
 // anterior
 // border: 1px solid #eee;
