@@ -5,10 +5,6 @@ import DatePicker from "../../components/Calendario/Calendario";
 import { CaminhoStyle } from "./Styles";
 import Profissional from "../../components/Profissional/Profissional";
 
-// import "./Agendamento.css";
-
-// import Profissional from "../../Components/Profissional/Profissional";
-
 function Agendamento() {
   return (
     <div>

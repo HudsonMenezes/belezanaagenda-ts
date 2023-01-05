@@ -9,6 +9,7 @@ import {
 import CadastroConcluido from "./pages/CadastroConcluido/CadastroConcluido";
 import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 import Agendamento from "./pages/Agendamento/Agendamento";
+import AgendamentoConcluido from "./pages/AgendamentoConcluido/AgendamentoConcluido";
 
 export default function Routes() {
   return (
@@ -20,6 +21,10 @@ export default function Routes() {
           <Route path="/cadastroconcluido" element={<CadastroConcluido />} />
           <Route path="/paginainicial" element={<PaginaInicial />} />
           <Route path="/agendamento" element={<Agendamento />} />
+          <Route
+            path="/agendamentoconcluido"
+            element={<AgendamentoConcluido />}
+          />
         </WrapperRoutes>
       </BrowserRouter>
     </div>
