@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import InfoSalao from "../../components/InfoSalao/InfoSalao";
 import DatePicker from "../../components/Calendario/Calendario";
 import { CaminhoStyle } from "./Styles";
+import Profissional from "../../components/Profissional/Profissional";
 
 // import "./Agendamento.css";
 
@@ -19,10 +20,10 @@ function Agendamento() {
       </section>
       <DatePicker />
       <p className="mt-5">Quem vai te atender:</p>
-      {/* <Profissional nome="Joana" profissao="Hair Dresser" />
+      <Profissional nome="Joana" profissao="Hair Dresser" />
       <Profissional nome="Joana" profissao="Sobrancelha" />
       <Profissional nome="Maria" profissao="Nail Speacialist" />
-      <Profissional nome="Fabiana" profissao="Hair Dresser" /> */}
+      <Profissional nome="Fabiana" profissao="Hair Dresser" />
     </div>
   );
 }
