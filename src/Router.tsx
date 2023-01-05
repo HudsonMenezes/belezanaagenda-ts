@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import CadastroConcluido from "./pages/CadastroConcluido/CadastroConcluido";
 import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
+import Agendamento from "./pages/Agendamento/Agendamento";
 
 export default function Routes() {
   return (
@@ -18,6 +19,7 @@ export default function Routes() {
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/cadastroconcluido" element={<CadastroConcluido />} />
           <Route path="/paginainicial" element={<PaginaInicial />} />
+          <Route path="/agendamento" element={<Agendamento />} />
         </WrapperRoutes>
       </BrowserRouter>
     </div>
