@@ -17,11 +17,13 @@ function Agendamento() {
   return (
     <div>
       <Header />
+      <div id="boxHome">
       <section>
         <CaminhoStyle>
           Página Inicial &gt; Corte Feminino &gt; Confirmação
         </CaminhoStyle>
         {/* Procurar lib que faz isso */}
+        <div className="d-flex flex-column align-items-center">
         <InfoSalao />
         <ConfirmImgStyle src={HorarioMarcado} alt="Horario Marcado" />
         <BoxStyle>
@@ -45,7 +47,9 @@ function Agendamento() {
             </div>
           </TextoStyle>
         </BoxStyle>
+        </div>
       </section>
+      </div>
     </div>
   );
 }

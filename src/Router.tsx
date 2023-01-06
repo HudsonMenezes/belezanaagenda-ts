@@ -13,7 +13,7 @@ import AgendamentoConcluido from "./pages/AgendamentoConcluido/AgendamentoConclu
 
 export default function Routes() {
   return (
-    <div className="App container">
+    <div className="App">
       <BrowserRouter>
         <WrapperRoutes>
           <Route path="/" element={<Login />} />

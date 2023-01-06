@@ -12,11 +12,12 @@ export const FormStyle = styled.form`
   }
 `;
 
-export const Input = styled.input`
-  border: 1px solid #000000;
-  border-radius: 15px;
-  width: 330px;
-  height: 57px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+export const LogoStyle = styled.img`
+  width: 200px;
+  margin-bottom: 15px
+`;
+
+export const ArameImg = styled.img`
+  margin: 1rem;
+  margin-top: -35px
 `;

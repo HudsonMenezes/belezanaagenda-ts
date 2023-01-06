@@ -8,14 +8,14 @@ import BannerServicos from "../../assets/bannerservicos.png";
 
 function PaginaInicial() {
   return (
-    <div className="container">
+    <div>
       <Header />
-
+      <div id="boxHome">
       <section className="banner">
         <img src={BannerSalao} alt="Banner Salão" className="bannersalao" />
       </section>
       <section>
-        <p className="boasvindas text-start">
+        <p>
           <span>Olá *FULANA*!</span>
           <br /> Que bom receber você aqui. Qual serviço você quer agendar?
         </p>
@@ -42,7 +42,7 @@ function PaginaInicial() {
       </section>
       <div></div>
     </div>
+    </div>
   );
 }
-
 export default PaginaInicial;

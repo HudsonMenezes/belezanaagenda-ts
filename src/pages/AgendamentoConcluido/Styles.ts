@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ConfirmImgStyle = styled.img`
   margin: 20px 0;
+  width: 250px
 `;
 
 export const CaminhoStyle = styled.p`
@@ -11,11 +12,9 @@ export const CaminhoStyle = styled.p`
 `;
 
 export const BoxStyle = styled.div`
-  display: flex;
-  flex-direction: column;
   border-radius: 10px;
   padding: 21px;
-  background-color: #f5f5f5;
+  background-color: #D9D9D9;
   box-shadow: 1px 2px 2px 1px rgba(219, 219, 219, 1);
   width: 330px;
   height: 206px;
@@ -42,6 +41,6 @@ export const TextoStyle = styled.div`
   }
 
   span {
-    color: #c4c4c4;
+    color: #626060;
   }
 `;

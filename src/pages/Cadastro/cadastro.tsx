@@ -1,7 +1,8 @@
 import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
 import { FormEvent } from "react";
-import { FormStyle } from "./styles";
+import { FormStyle, LogoStyle, ArameImg } from "./styles";
+import arame from "../../assets/aramedaagenda.png";
 import { ButtonStyle } from "../../components/Button/style";
 import logo from "../../assets/logo.png";
 import Error from "../../components/Helper/Error";
@@ -18,10 +19,14 @@ function Cadastro() {
   }
 
   return (
+    <div id="box">
     <div>
-      <img className="mt-5 mb-5" src={logo} alt="logo" />
-      <p className="fw-semibold mb-4">Preencha todas as informações abaixo</p>
-      <FormStyle className="" onSubmit={handleSubmit}>
+      <ArameImg src={arame} alt="aramedaagenda" />
+    </div>
+    <div>
+      <LogoStyle className="mb-3" src={logo} alt="logo" />
+      <p className="fw-semibold mb-3">Preencha todas as informações abaixo</p>
+      <FormStyle onSubmit={handleSubmit}>
         <Input
           label="Nome"
           type="text"
@@ -51,11 +56,11 @@ function Cadastro() {
           {...telefone}
         />
 
-        <Button>Cadastrar</Button>
+        <Button className="mb-5">Cadastrar</Button>
         {/* <Error error={} /> */}
       </FormStyle>
     </div>
+    </div>
   );
 }
-
 export default Cadastro;

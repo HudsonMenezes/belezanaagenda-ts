@@ -6,12 +6,14 @@ export const ButtonStyle = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 0.4rem;
-  background: #fb1;
-  color: #764701;
-  min-width: 8rem;
+  background: #B2B6B6;
+  color: #191934;
+  font-weight: bold;
+  width: 90%;
+  max-width: 300px;
   padding: 0.8rem 1.2rem;
-  box-sizing: border-box;
   transition: 0.1s;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
   :hover,
   :focus {

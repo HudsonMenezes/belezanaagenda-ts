@@ -13,7 +13,6 @@ function Header() {
       <HeaderStyle className="d-flex justify-content-around align-items-center">
         <Sidebar />
         <img src={Logo} alt="Logo" className="logo" />
-
         <img src={FotoPerfil} alt="Foto de Perfil" className="fotoperfil" />
       </HeaderStyle>
     </div>
