@@ -1,10 +1,10 @@
-import { LogoStyle, MiniImg, ArameImg} from "./Styles";
+import { LogoStyle, MiniImg, ArameImg } from "./Styles";
 import logo from "../../assets/logo.png";
 import appleLogo from "../../assets/appleLogo.png";
 import googleLogo from "../../assets/googleLogo.png";
 import facebookLogo from "../../assets/facebookLogo.png";
 import arame from "../../assets/aramedaagenda.png";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { FormEvent } from "react";
 import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
@@ -48,10 +48,12 @@ export function Login() {
           <Button className="mt-4">Entrar</Button>
         </form>
         <div>
-          <p className="mt-3">Ainda não tem conta? <br /> <b>Cadastre-se</b> </p>
+          <p className="mt-3">
+            Ainda não tem conta? <br /> <b>Cadastre-se</b>{" "}
+          </p>
         </div>
         <div className="mt-3">
-          <hr/>
+          <hr />
           <p>Ou entre com:</p>
         </div>
         <div className="d-flex justify-content-around mb-4">

@@ -10,6 +10,7 @@ import CadastroConcluido from "./pages/CadastroConcluido/CadastroConcluido";
 import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 import Agendamento from "./pages/Agendamento/Agendamento";
 import AgendamentoConcluido from "./pages/AgendamentoConcluido/AgendamentoConcluido";
+import Perfil from "./pages/Perfil/Perfil";
 
 export default function Routes() {
   return (
@@ -25,6 +26,7 @@ export default function Routes() {
             path="/agendamentoconcluido"
             element={<AgendamentoConcluido />}
           />
+          <Route path="/perfil" element={<Perfil />} />
         </WrapperRoutes>
       </BrowserRouter>
     </div>
