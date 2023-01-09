@@ -4,16 +4,19 @@ import appleLogo from "../../assets/appleLogo.png";
 import googleLogo from "../../assets/googleLogo.png";
 import facebookLogo from "../../assets/facebookLogo.png";
 import arame from "../../assets/aramedaagenda.png";
-import { Navigate } from "react-router-dom";
-import { FormEvent } from "react";
-import useForm from "../../components/Hooks/useForm";
+import { Link, Navigate } from "react-router-dom";
+import { FormEvent, useState } from "react";
+// import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 // import Cadastro from '../Cadastro/cadastro';
 
 export function Login() {
-  const username = useForm("nome");
-  const password = useForm("senha");
+  const [email, setEmail] = useState<string>("");
+  const [senha, setSenha] = useState<string>("");
+
+  // const username = useForm("nome");
+  // const password = useForm("senha");
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -35,21 +38,30 @@ export function Login() {
             label="Nome"
             type="text"
             placeholder="seunome@email.com"
-            name="username"
-            {...username}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            name="email"
+            // {...email}
           />
           <Input
             label="Senha"
             type="password"
             placeholder="******"
-            name="password"
-            {...password}
+            value={senha}
+            onChange={(event) => setSenha(event.target.value)}
+            name="senha"
+            // {...senha}
           />
-          <Button className="mt-4">Entrar</Button>
+          <Button type="submit" className="mt-4">
+            Entrar
+          </Button>
         </form>
         <div>
           <p className="mt-3">
-            Ainda não tem conta? <br /> <b>Cadastre-se</b>{" "}
+            Ainda não tem conta? <br />{" "}
+            <Link to="/cadastro">
+              <b>Cadastre-se</b>
+            </Link>
           </p>
         </div>
         <div className="mt-3">
