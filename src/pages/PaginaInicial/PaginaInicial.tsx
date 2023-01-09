@@ -24,22 +24,40 @@ function PaginaInicial() {
         <section className="servicos">
           <div className="row row-cols-2">
             <div className="col">
-              <Link to="/agendamento">
+              <Link
+                to="/agendamento"
+                className="text-decoration-none text-black"
+              >
                 <img alt="Banner Servicos" src={BannerServicos} />
                 <p>Corte Masculino</p>
               </Link>
             </div>
             <div className="col">
-              <img alt="Banner Servicos" src={BannerServicos} />
-              <p>Corte Feminino</p>
+              <Link
+                to="/agendamento"
+                className="text-decoration-none text-black"
+              >
+                <img alt="Banner Servicos" src={BannerServicos} />
+                <p>Corte Feminino</p>
+              </Link>
             </div>
             <div className="col">
-              <img alt="Banner Servicos" src={BannerServicos} />
-              <p>Sobrancelha</p>
+              <Link
+                to="/agendamento"
+                className="text-decoration-none text-black"
+              >
+                <img alt="Banner Servicos" src={BannerServicos} />
+                <p>Sobrancelha</p>
+              </Link>
             </div>
             <div className="col">
-              <img alt="Banner Servicos" src={BannerServicos} />
-              <p>Manicure</p>
+              <Link
+                to="/agendamento"
+                className="text-decoration-none text-black"
+              >
+                <img alt="Banner Servicos" src={BannerServicos} />
+                <p>Manicure</p>
+              </Link>
             </div>
           </div>
         </section>
