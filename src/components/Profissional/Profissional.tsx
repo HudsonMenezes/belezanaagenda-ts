@@ -4,14 +4,19 @@ import fotoprofissional from "../../assets/fotoprofissional.png";
 import Relogio from "../../assets/relogio.png";
 import { ProfissionalStyle } from "./Styles";
 
-function Profissional({ nome, profissao }: any) {
+interface ProfissionalProps {
+  nome: string;
+  servico: string;
+}
+
+function Profissional({ nome, servico }: ProfissionalProps) {
   return (
     <ProfissionalStyle>
       <div>
         <img alt="Imagem do Profissional" src={fotoprofissional} />
         <div>
           <span>{nome}</span>
-          <p>{profissao}</p>
+          <p>{servico}</p>
         </div>
         <img alt="Relogio" src={Relogio} />
       </div>

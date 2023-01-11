@@ -14,9 +14,10 @@ const modifiersClassNames = {
   highlight: "-highlight",
 };
 export default function DatePicker() {
-  const [date, setDate] = useState<any>();
+  const [date, setDate] = useState<any>(new Date());
 
-  console.log(date);
+  console.log(date.toISOString());
+
   return (
     <CalendarioStyle>
       <p>Escolha o dia:</p>
