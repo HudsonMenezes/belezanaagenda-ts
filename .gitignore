@@ -2,6 +2,10 @@
 
 #config files
 /src/services/MainApi/config/index.ts
+/src/services/index.ts
+src/services/index.ts
+/services/index.ts
+
 
 # dependencies
 /node_modules
