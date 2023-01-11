@@ -6,12 +6,17 @@ import logo from "../../assets/logo.png";
 // import Error from "../../components/Helper/Error";
 import Button from "../../components/Button/Button";
 import { cadastroCliente } from "../../services/MainApi/clientes";
+import { useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [nome, setNome] = useState<string>("");
   const [telefone, setTelefone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
+  const aniversario = new Date();
+  const sexo = "F";
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -21,14 +26,17 @@ function Cadastro() {
       telefone,
       email,
       senha,
+      aniversario,
+      sexo,
     };
 
     try {
       const response = await cadastroCliente(payload);
-      if (response.status !== 201) {
+      if (response.status !== 200) {
         return alert("Alguma coisa deu errado!");
       }
-      alert("Cadastro efetuado com Sucesso!");
+      alert("Cadastro efetuado com Sucesso!!");
+      navigate("/cadastroconcluido");
     } catch (error) {
       alert("Deu algo errado!");
     }

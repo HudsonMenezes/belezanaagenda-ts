@@ -5,6 +5,8 @@ interface ClientePayload {
   email: string;
   telefone: string;
   senha: string;
+  aniversario?: Date;
+  sexo?: string;
 }
 
 export function cadastroCliente(payload: ClientePayload) {
