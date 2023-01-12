@@ -1,3 +1,4 @@
+import { LoginClientePayload } from "../../models/models";
 import baseApi from "./config";
 
 interface ClientePayload {
@@ -11,4 +12,7 @@ interface ClientePayload {
 
 export function cadastroCliente(payload: ClientePayload) {
   return baseApi.post("/cliente", payload);
+}
+export function loginCliente(payload: LoginClientePayload) {
+  return baseApi.post("/loginCliente", payload);
 }
