@@ -1,7 +1,7 @@
-import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../../UserContext";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
-
 import imgprofissional from "../../assets/imgprofissional.png";
 
 import {
@@ -13,12 +13,14 @@ import {
 } from "./Styles";
 
 function Agendamento() {
+  const { user } = useContext(UserContext);
+
   return (
     <div>
       <Header />
       <div id="boxHome">
         <section>
-          <ClienteStyle>Olá *FULANA*</ClienteStyle>
+          <ClienteStyle>Olá, {user?.cliente.nome}</ClienteStyle>
           <CaminhoStyle>Proximos Atendimentos</CaminhoStyle>
           {/* Procurar lib que faz isso */}
           <div className="d-flex flex-column align-items-center">
