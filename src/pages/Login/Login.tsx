@@ -4,7 +4,7 @@ import appleLogo from "../../assets/appleLogo.png";
 import googleLogo from "../../assets/googleLogo.png";
 import facebookLogo from "../../assets/facebookLogo.png";
 import arame from "../../assets/aramedaagenda.png";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FormEvent, useState } from "react";
 // import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
@@ -20,7 +20,6 @@ export function Login() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    <Navigate to="/cadastro" />;
   }
 
   return (
