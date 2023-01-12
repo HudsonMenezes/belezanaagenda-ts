@@ -1,100 +1,91 @@
 import Input from "../../components/Input/Input";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext } from "react";
 import { FormStyle, LogoStyle, ArameImg } from "./styles";
 import arame from "../../assets/aramedaagenda.png";
 import logo from "../../assets/logo.png";
-// import Error from "../../components/Helper/Error";
+import Error from "../../components/Helper/Error";
 import Button from "../../components/Button/Button";
-import { cadastroCliente } from "../../services/MainApi/clientes";
-import { useNavigate } from "react-router-dom";
+import useForm from "../../components/Hooks/useForm";
+import { UserContext } from "../../UserContext";
 
 function Cadastro() {
-  const [nome, setNome] = useState<string>("");
-  const [telefone, setTelefone] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [senha, setSenha] = useState<string>("");
+  const nome = useForm();
+  const telefone = useForm();
+  const email = useForm();
+  const senha = useForm();
   const aniversario = new Date();
   const sexo = "F";
 
-  const navigate = useNavigate();
+  const payload = {
+    nome: nome.value,
+    telefone: telefone.value,
+    email: email.value,
+    senha: senha.value,
+    aniversario,
+    sexo,
+  };
+  const { loginCreate, error, loading, user } = useContext(UserContext);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
-    const payload = {
-      nome,
-      telefone,
-      email,
-      senha,
-      aniversario,
-      sexo,
-    };
-
-    try {
-      const response = await cadastroCliente(payload);
-      if (response.status !== 200) {
-        return alert("Alguma coisa deu errado!");
-      }
-      alert("Cadastro efetuado com Sucesso!!");
-      navigate("/cadastroconcluido");
-    } catch (error) {
-      alert("Deu algo errado!");
-    }
+    loginCreate(payload);
   };
 
   return (
-    <div id="box">
-      <div>
-        <ArameImg src={arame} alt="aramedaagenda" />
+    <>
+      {user?.msg}
+      <div id="box">
+        <div>
+          <ArameImg src={arame} alt="aramedaagenda" />
+        </div>
+        <div>
+          <LogoStyle className="mb-3" src={logo} alt="logo" />
+          <p className="fw-semibold mb-3">
+            Preencha todas as informações abaixo
+          </p>
+          <FormStyle onSubmit={handleSubmit}>
+            <Input
+              label="Nome"
+              type="text"
+              placeholder="Nome"
+              name="nome"
+              {...nome}
+            />
+            <Input
+              label="Email"
+              type="email"
+              placeholder="Email"
+              name="email"
+              {...email}
+            />
+            <Input
+              label="Senha"
+              type="password"
+              placeholder="Senha"
+              name="senha"
+              {...senha}
+            />
+            <Input
+              label="Telefone"
+              type="text"
+              placeholder="Telefone"
+              name="telefone"
+              {...telefone}
+            />
+            {loading ? (
+              <Button disabled type="submit" className="mb-5">
+                Cadastrando...
+              </Button>
+            ) : (
+              <Button type="submit" className="mb-5">
+                Cadastrar
+              </Button>
+            )}
+            <Error error={error} />
+          </FormStyle>
+        </div>
       </div>
-      <div>
-        <LogoStyle className="mb-3" src={logo} alt="logo" />
-        <p className="fw-semibold mb-3">Preencha todas as informações abaixo</p>
-        <FormStyle onSubmit={handleSubmit}>
-          <Input
-            label="Nome"
-            type="text"
-            placeholder="Nome"
-            value={nome}
-            onChange={(event) => setNome(event.target.value)}
-            name="username"
-            // {...nome} Comentei porque estava dando erro.
-          />
-          <Input
-            label="Email"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            name="email"
-            // {...email}
-          />
-          <Input
-            label="Senha"
-            type="password"
-            placeholder="Senha"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
-            name="password"
-            // {...senha}
-          />
-          <Input
-            label="Telefone"
-            type="text"
-            placeholder="Telefone"
-            value={telefone}
-            onChange={(event) => setTelefone(event.target.value)}
-            name="phone"
-            // {...telefone}
-          />
-
-          <Button type="submit" className="mb-5">
-            Cadastrar
-          </Button>
-          {/* <Error error={} /> */}
-        </FormStyle>
-      </div>
-    </div>
+    </>
   );
 }
 export default Cadastro;
