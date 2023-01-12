@@ -1,8 +1,9 @@
-import React, { useState } from "react";
 import { getDay } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { useContext } from "react";
 import { DatePickerCalendar } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
+import { UserContext } from "../../UserContext";
 import { CalendarioStyle } from "./Styles";
 
 const modifiers = {
@@ -14,16 +15,15 @@ const modifiersClassNames = {
   highlight: "-highlight",
 };
 export default function DatePicker() {
-  const [date, setDate] = useState<any>(new Date());
-
-  console.log(date.toISOString());
+  const { agendamento, setAgendamento } = useContext(UserContext);
+  console.log(agendamento.toISOString());
 
   return (
     <CalendarioStyle>
       <p>Escolha o dia:</p>
       <DatePickerCalendar
-        date={date}
-        onDateChange={setDate}
+        date={agendamento}
+        onDateChange={setAgendamento}
         locale={ptBR}
         modifiers={modifiers}
         modifiersClassNames={modifiersClassNames}
