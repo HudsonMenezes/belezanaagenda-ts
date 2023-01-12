@@ -1,7 +1,7 @@
 import { createContext, Dispatch, ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CreateClientePayload } from "./models/models";
-import { cadastroCliente } from "./services/MainApi/clientes";
+import { CreateClientePayload, LoginClientePayload } from "./models/models";
+import { cadastroCliente, loginCliente } from "./services/MainApi/clientes";
 
 type ContextProviderData = {
   agendamento: any;
@@ -17,6 +17,7 @@ type ContextProviderData = {
     msg: string;
   } | null;
   loginCreate: (payload: CreateClientePayload) => Promise<void>;
+  loginUser: (payload: LoginClientePayload) => Promise<void>;
   error: null;
   loading: boolean;
   login: boolean;
@@ -52,11 +53,24 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setLoading(false);
     }
   }
+  async function loginUser(payload: LoginClientePayload) {
+    try {
+      setError(null);
+      setLoading(true);
+      const response = await loginCliente(payload);
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      //..
+    }
+  }
 
   return (
     <UserContext.Provider
       value={{
         loginCreate,
+        loginUser,
         user,
         agendamento,
         setAgendamento,
