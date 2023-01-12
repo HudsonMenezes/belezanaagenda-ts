@@ -9,22 +9,17 @@ import useForm from "../../components/Hooks/useForm";
 import { UserContext } from "../../UserContext";
 
 function Cadastro() {
-  const nome = useForm();
-  const telefone = useForm();
-  const email = useForm();
-  const senha = useForm();
-  const aniversario = new Date();
-  const sexo = "F";
-
+  const nome = useForm("nome");
+  const telefone = useForm("number");
+  const email = useForm("email");
+  const senha = useForm("senha");
+  const { loginCreate, error, loading, user } = useContext(UserContext);
   const payload = {
     nome: nome.value,
     telefone: telefone.value,
     email: email.value,
     senha: senha.value,
-    aniversario,
-    sexo,
   };
-  const { loginCreate, error, loading, user } = useContext(UserContext);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();

@@ -5,18 +5,14 @@ import googleLogo from "../../assets/googleLogo.png";
 import facebookLogo from "../../assets/facebookLogo.png";
 import arame from "../../assets/aramedaagenda.png";
 import { Link } from "react-router-dom";
-import { FormEvent, useState } from "react";
-// import useForm from "../../components/Hooks/useForm";
+import { FormEvent } from "react";
+import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-// import Cadastro from '../Cadastro/cadastro';
 
 export function Login() {
-  const [email, setEmail] = useState<string>("");
-  const [senha, setSenha] = useState<string>("");
-
-  // const username = useForm("nome");
-  // const password = useForm("senha");
+  const email = useForm("nome");
+  const senha = useForm("senha");
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -37,19 +33,15 @@ export function Login() {
             label="Nome"
             type="text"
             placeholder="seunome@email.com"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
             name="email"
-            // {...email}
+            {...email}
           />
           <Input
             label="Senha"
             type="password"
             placeholder="******"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
             name="senha"
-            // {...senha}
+            {...senha}
           />
           <Button type="submit" className="mt-4">
             Entrar
