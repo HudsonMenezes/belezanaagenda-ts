@@ -5,17 +5,25 @@ import googleLogo from "../../assets/googleLogo.png";
 import facebookLogo from "../../assets/facebookLogo.png";
 import arame from "../../assets/aramedaagenda.png";
 import { Link } from "react-router-dom";
-import { FormEvent } from "react";
+import { FormEvent, useContext } from "react";
 import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import { UserContext } from "../../UserContext";
 
 export function Login() {
   const email = useForm("nome");
   const senha = useForm("senha");
+  const { loginUser } = useContext(UserContext);
+
+  const payload = {
+    email: email.value,
+    senha: senha.value,
+  };
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    loginUser(payload);
   }
 
   return (

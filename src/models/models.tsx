@@ -4,3 +4,7 @@ export interface CreateClientePayload {
   senha: string;
   telefone: string;
 }
+export interface LoginClientePayload {
+  email: string;
+  senha: string;
+}
