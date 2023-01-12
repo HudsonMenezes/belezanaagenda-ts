@@ -10,11 +10,12 @@ import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import { UserContext } from "../../UserContext";
+import Error from "../../components/Helper/Error";
 
 export function Login() {
   const email = useForm("nome");
   const senha = useForm("senha");
-  const { loginUser } = useContext(UserContext);
+  const { loginUser, error, loading } = useContext(UserContext);
 
   const payload = {
     email: email.value,
@@ -51,9 +52,16 @@ export function Login() {
             name="senha"
             {...senha}
           />
-          <Button type="submit" className="mt-4">
-            Entrar
-          </Button>
+          {loading ? (
+            <Button disabled type="submit" className="mt-4">
+              Entrando...
+            </Button>
+          ) : (
+            <Button type="submit" className="mt-4">
+              Entrar
+            </Button>
+          )}
+          <Error error={error} />
         </form>
         <div>
           <p className="mt-3">

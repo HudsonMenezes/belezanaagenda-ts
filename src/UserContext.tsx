@@ -42,12 +42,11 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setUser(response.data);
       console.log(response.data);
       if (response.status !== 200)
-        throw new Error(`Error: ${response.statusText}`);
+        throw new Error(`Error:${response.statusText}`);
       navigate("/perfil");
     } catch (err: any) {
       const message = err.response.data.statusText;
       setError(err.message);
-      console.log(err.message);
       setLogin(false);
     } finally {
       setLoading(false);
@@ -58,11 +57,14 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setError(null);
       setLoading(true);
       const response = await loginCliente(payload);
+      if (response.status !== 200)
+        throw new Error(`Error: ${response.statusText}`);
       console.log(response.data);
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      setError(err.message);
+      setLogin(false);
     } finally {
-      //..
+      setLoading(false);
     }
   }
 
