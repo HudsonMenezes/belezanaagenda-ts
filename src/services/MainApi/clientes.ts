@@ -16,3 +16,6 @@ export function cadastroCliente(payload: ClientePayload) {
 export function loginCliente(payload: LoginClientePayload) {
   return baseApi.post("/loginCliente", payload);
 }
+export function pegarCliente(id: string) {
+  return baseApi.get(`/cliente/${id}`);
+}

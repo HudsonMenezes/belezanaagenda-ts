@@ -28,7 +28,7 @@ function Cadastro() {
 
   return (
     <>
-      {user?.msg}
+      {user?.sucess}
       <div id="box">
         <div>
           <ArameImg src={arame} alt="aramedaagenda" />

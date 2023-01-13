@@ -28,7 +28,7 @@ function Sidebar() {
               <AiIcons.AiOutlineClose />
             </Link>
           </li>
-          <p>{user?.cliente.nome}</p>
+          {/* <p>{user?.cliente.nome}</p> */}
           {SidebarLinks.map((item, index) => {
             return (
               <li key={index} className={item.cName}>

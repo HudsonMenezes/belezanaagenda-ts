@@ -1,20 +1,24 @@
 import { createContext, Dispatch, ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateClientePayload, LoginClientePayload } from "./models/models";
-import { cadastroCliente, loginCliente } from "./services/MainApi/clientes";
+import {
+  cadastroCliente,
+  loginCliente,
+  pegarCliente,
+} from "./services/MainApi/clientes";
 
 type ContextProviderData = {
   agendamento: any;
   setAgendamento: Dispatch<any>;
   user: {
+    sucess: string;
     cliente: {
-      id: string;
+      _id: string;
       nome: string;
       email: string;
-      telefone: string;
       senha: string;
+      telefone: string;
     };
-    msg: string;
   } | null;
   loginCreate: (payload: CreateClientePayload) => Promise<void>;
   loginUser: (payload: LoginClientePayload) => Promise<void>;
@@ -39,13 +43,12 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setError(null);
       setLoading(true);
       const response = await cadastroCliente(payload);
-      setUser(response.data);
-      console.log(response.data);
       if (response.status !== 200)
         throw new Error(`Error:${response.statusText}`);
+      const id = response.data.cliente._id;
+      await getUser(id);
       navigate("/perfil");
     } catch (err: any) {
-      const message = err.response.data.statusText;
       setError(err.message);
       setLogin(false);
     } finally {
@@ -57,9 +60,11 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setError(null);
       setLoading(true);
       const response = await loginCliente(payload);
+      // console.log(response.data);
       if (response.status !== 200)
         throw new Error(`Error: ${response.statusText}`);
-      console.log(response.data);
+      const token = response.data.token;
+      localStorage.setItem("token", token);
     } catch (err: any) {
       setError(err.message);
       setLogin(false);
@@ -67,7 +72,13 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setLoading(false);
     }
   }
-
+  async function getUser(id: string) {
+    const response = pegarCliente(id);
+    const data = (await response).data;
+    setUser(data);
+    setLogin(true);
+    console.log(data);
+  }
   return (
     <UserContext.Provider
       value={{
