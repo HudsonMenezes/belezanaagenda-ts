@@ -4,16 +4,15 @@ import React from "react";
 import { HeaderStyle } from "./Styles";
 
 import Logo from "../../assets/logo.png";
-import FotoPerfil from "../../assets/fotoperfil.png";
 import Sidebar from "../Sidebar/Sidebar";
 
 function Header() {
   return (
     <div>
-      <HeaderStyle className="d-flex justify-content-around align-items-center">
-        <Sidebar />
+      <HeaderStyle className="headerStyle d-flex justify-content-between align-items-center">
+        
         <img src={Logo} alt="Logo" className="logo" />
-        <img src={FotoPerfil} alt="Foto de Perfil" className="fotoperfil" />
+        <Sidebar />
       </HeaderStyle>
     </div>
   );

@@ -16,37 +16,24 @@ export const SidebarStyle = styled.div`
   }
 
   .nav-menu {
-    background-color: #333333;
-    width: 188px;
+    background-color: #FFC973;
+    width: 250px;
     height: 100vh;
     display: flex;
     justify-content: left;
     position: fixed;
     top: 0;
-    left: -100%;
+    right: -100%;
     z-index: 999;
     transition: 850ms;
   }
-
-  .nav-menu {
-    background-color: #333333;
-    width: 188px;
-    height: 100vh;
-    display: flex;
-    justify-content: left;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    z-index: 999;
-    transition: 850ms;
-  }
-
+  
   .nav-menu a > svg {
-    color: #fff;
+    color: #404040;
   }
 
   .nav-menu.active {
-    left: 0;
+    right: 0;
     z-index: 999;
     transition: 350ms;
   }
@@ -61,7 +48,7 @@ export const SidebarStyle = styled.div`
 
   .nav-text a {
     text-decoration: none;
-    color: #ffffff;
+    color: #404040;
     font-size: 16px;
     width: 100%;
     height: 100%;
@@ -72,13 +59,13 @@ export const SidebarStyle = styled.div`
   }
 
   .nav-text a:hover {
-    background-color: #5e5d5d;
+    background-color: #ffe1b0;
     transition: 0.5s;
   }
 
   .nav-menu-items {
     width: 100%;
-    color: #ffffff;
+    color: #404040;
     font-weight: bold;
   }
 
@@ -86,7 +73,8 @@ export const SidebarStyle = styled.div`
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
+    padding-right: 30px;
   }
 `;

@@ -1,31 +1,159 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F6D849;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  text-decoration: none;
+  background-color: #742092;
 }
 
 #box{
-  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  justify-content: center;
   max-width: 500px;
   min-width: 300px;
   margin: auto;
-  margin-top: 8vh;
 }
 
 #boxHome{
   background-color: #FFFFFF;
   width: 100%;
   min-width: 300px;
-  padding: 15px 10px;
+  text-align: left;
+}
+
+.conteinerBase{
+  max-width: 900px;
+  margin: auto;
+}
+
+.linkCollor{
+  color: #FFC973;
+  text-decoration: none;
+}
+
+.headerStyle{
+  background-color: #FFC973;
+  padding: 0 30px;
+}
+
+.itemHome{
+  background-color: #FFE3B3;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  min-width: 150px;
+  max-width: 200px;
+  font-weight: 400;
+  color: 404040;
+  text-align: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#boxHome h1{
+  color: #742092;
+  font-weight: 600;
+}
+
+#boxHome h2{
+  font-weight: 400;
+  font-size: 25px;
+  padding-top: 30px;
+}
+
+#boxHome h3{
+  font-weight: 500;
+  font-size: 16px;
+}
+
+#boxHome h4{
+  font-size: 13px;
+  color: #B9B9B9;
+}
+
+.bannersalao{
+  width: 100%;
+}
+
+.logoHome{
+  margin-top: -30px;
+}
+
+.spanEquipe{
+  color: #C858BA;
+  font-weight: 700;
+}
+
+.equipeItem{
+  border-radius: 20px;
+  width: 340px;
+  height: 245px;
+  background-color: #f0f0f0;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  margin: 10px;
+}
+
+.equipeItem img{
+  height: 245px;
+}
+
+.equipeItem h3{
+ font-weight: 500;
+ margin-bottom: -4px;
+}
+
+.buttonEquipe{
+  border-radius: 15px;
+  width: 150px;
+  height: 30px;
+  background-color: #C858BA;
+  text-align: center;
+  padding: 2px;
+}
+
+.buttonEquipe p{
+  color: #FFFFFF;
+}
+
+.backButton{
+  text-align: right;
+  padding: 15px 15px;
+}
+
+.backButton a{
+  text-decoration: none;
+  color: #B9B9B9;
+  font-size: 20px;
+}
+
+.agendamentoPage{
+  padding: 20px;
+}
+
+.agendamentoMarcado{
+  color: #FFFFFF;
+  padding: 30px;
+}
+
+.agendamentoMarcado h3{
+  font-weight: 400;
+  font-size: 20px;
+  padding: 5px;
+}
+.agendamentoMarcado h4{
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.agendamentoMarcado h5{
+  font-weight: 300;
+  font-size: 15px;
+  color: #FFC973;
+}
+
+.agendamentoMarcado span{
+  font-weight: 300;
+  font-size: 15px;
 }

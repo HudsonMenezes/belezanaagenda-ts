@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ConfirmImgStyle = styled.img`
   margin: 20px 0;
-  width: 250px
+  width: 150px
 `;
 
 export const CaminhoStyle = styled.p`

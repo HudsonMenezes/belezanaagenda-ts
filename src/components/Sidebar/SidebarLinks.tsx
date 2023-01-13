@@ -5,17 +5,27 @@ export const SidebarLinks = [
     cName: "nav-text",
   },
   {
-    title: "Meus Horários",
+    title: "Minha agenda",
     path: "#",
     cName: "nav-text",
   },
   {
-    title: "Serviços",
+    title: "Remarcar meu horário",
+    path: "#",
+    cName: "nav-text",
+  },
+  {
+    title: "Sobre o salão",
     path: "#",
     cName: "nav-text",
   },
   {
     title: "Configurações",
+    path: "#",
+    cName: "nav-text",
+  },
+  {
+    title: "Sair",
     path: "#",
     cName: "nav-text",
   },
