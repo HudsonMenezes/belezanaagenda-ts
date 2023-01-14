@@ -12,11 +12,10 @@ import Button from "../../components/Button/Button";
 import { UserContext } from "../../UserContext";
 import Error from "../../components/Helper/Error";
 
-
 export function Login() {
   const email = useForm("nome");
   const senha = useForm("senha");
-  const { loginUser, error, loading } = useContext(UserContext);
+  const { userLogin, error, loading } = useContext(UserContext);
 
   const payload = {
     email: email.value,
@@ -25,7 +24,7 @@ export function Login() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    loginUser(payload);
+    userLogin(payload);
   }
 
   return (

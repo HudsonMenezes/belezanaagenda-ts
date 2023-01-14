@@ -1,17 +1,20 @@
-import { createContext, Dispatch, ReactNode, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { CreateClientePayload, LoginClientePayload } from "./models/models";
 import {
-  cadastroCliente,
-  loginCliente,
-  pegarCliente,
-} from "./services/MainApi/clientes";
+  createContext,
+  Dispatch,
+  ReactNode,
+  useCallback,
+  useState,
+} from "react";
+import { useNavigate } from "react-router-dom";
+import { LoginClientePayload } from "./models/models";
+import { loginCliente } from "./services/MainApi/clientes";
 
 type ContextProviderData = {
   agendamento: any;
   setAgendamento: Dispatch<any>;
   user: {
     sucess: string;
+    token: string;
     cliente: {
       _id: string;
       nome: string;
@@ -20,8 +23,8 @@ type ContextProviderData = {
       telefone: string;
     };
   } | null;
-  loginCreate: (payload: CreateClientePayload) => Promise<void>;
-  loginUser: (payload: LoginClientePayload) => Promise<void>;
+  userLogin: (payload: LoginClientePayload) => Promise<void>;
+  userLogout(): Promise<void>;
   error: null;
   loading: boolean;
   login: boolean;
@@ -38,33 +41,30 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  async function loginCreate(payload: CreateClientePayload) {
-    try {
+  const userLogout = useCallback(
+    async function () {
+      setUser(null);
       setError(null);
-      setLoading(true);
-      const response = await cadastroCliente(payload);
-      if (response.status !== 200)
-        throw new Error(`Error:${response.statusText}`);
-      const id = response.data.cliente._id;
-      await getUser(id);
-      navigate("/perfil");
-    } catch (err: any) {
-      setError(err.message);
-      setLogin(false);
-    } finally {
       setLoading(false);
-    }
-  }
-  async function loginUser(payload: LoginClientePayload) {
+      setLogin(false);
+      localStorage.removeItem("token");
+      navigate("/login");
+    },
+    [navigate]
+  );
+
+  async function userLogin(payload: LoginClientePayload) {
     try {
       setError(null);
       setLoading(true);
       const response = await loginCliente(payload);
-      // console.log(response.data);
+      console.log(response.data);
       if (response.status !== 200)
         throw new Error(`Error: ${response.statusText}`);
+      setUser(response.data);
       const token = response.data.token;
       localStorage.setItem("token", token);
+      navigate("/paginainicial");
     } catch (err: any) {
       setError(err.message);
       setLogin(false);
@@ -72,18 +72,12 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setLoading(false);
     }
   }
-  async function getUser(id: string) {
-    const response = pegarCliente(id);
-    const data = (await response).data;
-    setUser(data);
-    setLogin(true);
-    console.log(data);
-  }
+
   return (
     <UserContext.Provider
       value={{
-        loginCreate,
-        loginUser,
+        userLogin,
+        userLogout,
         user,
         agendamento,
         setAgendamento,

@@ -1,20 +1,22 @@
 import Input from "../../components/Input/Input";
-import { FormEvent, useContext } from "react";
+import { FormEvent } from "react";
 import { FormStyle, LogoStyle, FundoLogin, FundoLogin2 } from "./styles";
 import logo from "../../assets/logo2.png";
 import Error from "../../components/Helper/Error";
 import Button from "../../components/Button/Button";
 import useForm from "../../components/Hooks/useForm";
-import { UserContext } from "../../UserContext";
 import fundo from "../../assets/fundo.png";
 import fundo2 from "../../assets/fundo2.png";
+import useApi from "../../components/Hooks/useApi";
 
 function Cadastro() {
   const nome = useForm("nome");
   const telefone = useForm("number");
   const email = useForm("email");
   const senha = useForm("senha");
-  const { loginCreate, error, loading, user } = useContext(UserContext);
+
+  const { loginCreate, error, loading } = useApi();
+
   const payload = {
     nome: nome.value,
     telefone: telefone.value,
@@ -29,7 +31,6 @@ function Cadastro() {
 
   return (
     <>
-      {user?.sucess}
       <div>
         <div id="box">
           <div>

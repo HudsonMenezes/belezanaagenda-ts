@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -6,11 +6,9 @@ import { Link } from "react-router-dom";
 import { SidebarLinks } from "./SidebarLinks";
 
 import { SidebarStyle } from "./Styles";
-import { UserContext } from "../../UserContext";
 
 function Sidebar() {
   const [sidebar, setSidebar] = useState(false);
-  const { user } = useContext(UserContext);
 
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -28,7 +26,6 @@ function Sidebar() {
               <AiIcons.AiOutlineClose />
             </Link>
           </li>
-          {/* <p>{user?.cliente.nome}</p> */}
           {SidebarLinks.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
