@@ -15,6 +15,7 @@ body {
   max-width: 500px;
   min-width: 300px;
   margin: auto;
+  overflow-y: hidden;
 }
 
 #boxHome{
@@ -71,6 +72,12 @@ body {
 #boxHome h4{
   font-size: 13px;
   color: #B9B9B9;
+}
+
+.ajusteFonte{
+  font-size: 35px;
+  color: #B9B9B9;
+  font-weight: 300;
 }
 
 .bannersalao{
@@ -156,4 +163,49 @@ body {
 .agendamentoMarcado span{
   font-weight: 300;
   font-size: 15px;
+}
+
+.tab1Perfil{
+  padding: 30px;
+  background-color: #FFE3B3;
+}
+
+.tab2Perfil{
+  padding: 30px;
+  background-color: #FFC973;
+}
+
+.buttonTab1,.buttonTab1:hover{
+  background-color: #FFE3B3;
+  border-radius: 0 20px 0 0;
+  color: #404040;
+  font-weight: 500;
+  height: 50px;
+  padding-top: 10px;
+  width: 50%;
+}
+
+.buttonTab2,.buttonTab2:hover{
+  background-color: #FFC973;
+  border-radius: 20px 0 0 0;
+  color: #404040;
+  font-weight: 300;
+  height: 50px;
+  padding-top: 10px;
+  width: 50%;
+}
+
+.nav a{
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.perfilButton{
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 250px;
+  text-align: center;
+  height: 40px;
+  padding-top: 6px;
 }

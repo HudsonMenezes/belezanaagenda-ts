@@ -6,7 +6,6 @@ import imgprofissional from "../../assets/imgprofissional.png";
 
 import {
   BoxStyle,
-  CaminhoStyle,
   ClienteStyle,
   ImgStyle,
   TextoStyle,
@@ -17,59 +16,68 @@ function Agendamento() {
 
   return (
     <div>
-      <Header />
       <div id="boxHome">
-        <section>
-          <ClienteStyle>Olá, {user?.cliente.nome}</ClienteStyle>
-          <CaminhoStyle>Proximos Atendimentos</CaminhoStyle>
-          {/* Procurar lib que faz isso */}
-          <div className="d-flex flex-column align-items-center">
-            <BoxStyle>
-              <div className="primeiraparte">
-                <ImgStyle src={imgprofissional} alt="Imagem do Profissional" />
-                <TextoStyle>
-                  <p>Maria</p>
-                  <span>Corte Feminino</span>
-                </TextoStyle>
-              </div>
-              <hr />
-              <TextoStyle className="segundaparte">
-                <div>
-                  <span>Dia</span>
-                  <p>19/12</p>
-                </div>
-                <div>
-                  <span>Horário</span>
-                  <p>14:00h</p>
-                </div>
-              </TextoStyle>
-              <Button style={{ width: "161px", borderRadius: "15px" }}>
-                Remarcar
-              </Button>
-              <a href="/">Cancelar</a>
-            </BoxStyle>
-          </div>
+        <Header />
+        <div className="conteinerBase">
+          <section>
+            <ClienteStyle> <span className="ajusteFonte">Agenda da</span>  <h1>Janaína</h1> </ClienteStyle>
+            {/* Procurar lib que faz isso */}
+            <div>
 
-          <CaminhoStyle>Para lembrar</CaminhoStyle>
-          <div className="d-flex flex-column align-items-center">
-            <BoxStyle style={{ height: "146px" }}>
-              <div className="primeiraparte">
-                <ImgStyle src={imgprofissional} alt="Imagem do Profissional" />
-                <TextoStyle>
-                  <p>Retoque raz</p>
-                  <span>Último Agendamento 19/11</span>
-                </TextoStyle>
+            <ul className="nav nav-tabs" id="nav-tab" role="tablist">
+                <a href="." className="nav-item active buttonTab1" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" role="tab" aria-controls="home-tab-pane" aria-selected="true">Marcados</a>
+                <a href="." className="nav-item buttonTab2" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Lembretes</a>
+            </ul>
+            <div className="tab-content" id="nav-tabContent">
+              <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+                <div className="d-flex flex-column align-items-center tab1Perfil">
+                <BoxStyle>
+                  <div className="primeiraparte">
+                    <ImgStyle src={imgprofissional} alt="Imagem do Profissional" />
+                    <TextoStyle>
+                      <p>Corte de cabelo</p>
+                      <span>Leila Macedo</span>
+                    </TextoStyle>
+                  </div>
+                  <hr />
+                  <TextoStyle className="segundaparte">
+                    <div>
+                      <span>Dia</span>
+                      <p>19/12</p>
+                    </div>
+                    <div>
+                      <span>Horário</span>
+                      <p>14:00h</p>
+                    </div>
+                  </TextoStyle>
+                  <Button type="submit" className="m-3">
+                    Remarcar
+                  </Button>
+                  <a href="/"><div className="perfilButton">Cancelar</div></a>
+                </BoxStyle>
+                <p>Você não tem mais horários marcados.</p>
+                </div>
               </div>
-
-              <Button style={{ width: "161px", borderRadius: "15px" }}>
-                Agendar
-              </Button>
-            </BoxStyle>
-          </div>
-        </section>
+              <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+              <div className="d-flex flex-column align-items-center tab2Perfil">
+                  <BoxStyle style={{ height: "146px" }}>
+                  <div className="primeiraparte">
+                    <TextoStyle>
+                      <p>Retoque raz</p>
+                      <span>Último Agendamento 19/11</span>
+                    </TextoStyle>
+                  </div>
+                  <a href="/"><div className="perfilButton">Agendar</div></a>
+                  </BoxStyle>
+                  <p>Você não tem mais lembretes.</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
 }
-
 export default Agendamento;

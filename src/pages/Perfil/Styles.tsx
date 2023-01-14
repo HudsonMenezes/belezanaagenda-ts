@@ -24,7 +24,6 @@ export const BoxStyle = styled.div`
   background-color: #f5f5f5;
   box-shadow: 1px 2px 2px 1px rgba(219, 219, 219, 1);
   width: 330px;
-  height: 280px;
   margin-bottom: 40px;
 
   .primeiraparte,
