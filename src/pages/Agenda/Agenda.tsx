@@ -15,8 +15,9 @@ import equipe3 from "../../assets/equipe3.png";
 import equipe4 from "../../assets/equipe4.png";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../UserContext";
+import Servicos from "../../components/Servicos/Servicos";
 
-function PaginaInicial() {
+function Agenda() {
   const { user } = useContext(UserContext);
 
   return (
@@ -47,46 +48,7 @@ function PaginaInicial() {
             </section>
             <section className="servicos">
               <div className="row">
-                <div className="col itemHome">
-                  <Link
-                    to="/agendamento"
-                    className="text-decoration-none text-black"
-                  >
-                    <img alt="Banner Servicos" src={corteMasculino} />
-                    <hr />
-                    <p>Corte Masculino</p>
-                  </Link>
-                </div>
-                <div className="col itemHome">
-                  <Link
-                    to="/agendamento"
-                    className="text-decoration-none text-black"
-                  >
-                    <img alt="Banner Servicos" src={corteFeminino} />
-                    <hr />
-                    <p>Corte Feminino</p>
-                  </Link>
-                </div>
-                <div className="col itemHome">
-                  <Link
-                    to="/agendamento"
-                    className="text-decoration-none text-black"
-                  >
-                    <img alt="Banner Servicos" src={escova} />
-                    <hr />
-                    <p>Escova</p>
-                  </Link>
-                </div>
-                <div className="col itemHome">
-                  <Link
-                    to="/agendamento"
-                    className="text-decoration-none text-black"
-                  >
-                    <img alt="Banner Servicos" src={manicure} />
-                    <hr />
-                    <p>Manicure</p>
-                  </Link>
-                </div>
+                <Servicos />
               </div>
             </section>
             <section>
@@ -225,4 +187,4 @@ function PaginaInicial() {
     </div>
   );
 }
-export default PaginaInicial;
+export default Agenda;

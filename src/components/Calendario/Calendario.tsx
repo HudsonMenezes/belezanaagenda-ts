@@ -15,15 +15,14 @@ const modifiersClassNames = {
   highlight: "-highlight",
 };
 export default function DatePicker() {
-  const { agendamento, setAgendamento } = useContext(UserContext);
-  console.log(agendamento.toISOString());
+  const { data, setData } = useContext(UserContext);
+  // console.log(data.toISOString());
 
   return (
     <CalendarioStyle>
-      <p>Escolha o dia:</p>
       <DatePickerCalendar
-        date={agendamento}
-        onDateChange={setAgendamento}
+        date={data}
+        onDateChange={setData}
         locale={ptBR}
         modifiers={modifiers}
         modifiersClassNames={modifiersClassNames}

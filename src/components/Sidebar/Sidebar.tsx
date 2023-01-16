@@ -2,9 +2,7 @@ import { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
-
 import { SidebarLinks } from "./SidebarLinks";
-
 import { SidebarStyle } from "./Styles";
 
 function Sidebar() {

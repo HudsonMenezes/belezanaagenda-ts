@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateClientePayload } from "../../models/models";
 import { cadastroCliente } from "../../services/MainApi/clientes";
@@ -23,7 +23,7 @@ const useApi = (): ApiProps => {
       console.log(response.data);
       if (response.status !== 200)
         throw new Error(`Error:${response.statusText}`);
-      navigate("/paginainicial");
+      navigate("/agenda");
     } catch (err: any) {
       setError(err.message);
       setLogin(false);

@@ -10,8 +10,8 @@ import { LoginClientePayload } from "./models/models";
 import { loginCliente } from "./services/MainApi/clientes";
 
 type ContextProviderData = {
-  agendamento: any;
-  setAgendamento: Dispatch<any>;
+  data: any;
+  setData: Dispatch<any>;
   user: {
     sucess: string;
     token: string;
@@ -34,7 +34,7 @@ export const UserContext = createContext<ContextProviderData>(
   {} as ContextProviderData
 );
 export const UserStorage = ({ children }: { children: ReactNode }) => {
-  const [agendamento, setAgendamento] = useState<any>(new Date());
+  const [data, setData] = useState<any>(new Date());
   const [user, setUser] = useState(null);
   const [login, setLogin] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -64,7 +64,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setUser(response.data);
       const token = response.data.token;
       localStorage.setItem("token", token);
-      navigate("/paginainicial");
+      navigate("/agenda");
     } catch (err: any) {
       setError(err.message);
       setLogin(false);
@@ -79,8 +79,8 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         userLogin,
         userLogout,
         user,
-        agendamento,
-        setAgendamento,
+        data,
+        setData,
         error,
         loading,
         login,

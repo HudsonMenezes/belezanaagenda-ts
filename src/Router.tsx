@@ -6,12 +6,13 @@ import {
   Routes as WrapperRoutes,
   Route,
 } from "react-router-dom";
-import CadastroConcluido from "./pages/CadastroConcluido/CadastroConcluido";
-import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
-import Agendamento from "./pages/Agendamento/Agendamento";
-import AgendamentoConcluido from "./pages/AgendamentoConcluido/AgendamentoConcluido";
-import Perfil from "./pages/Perfil/Perfil";
 import { UserStorage } from "./UserContext";
+import Agenda from "./pages/Agenda/Agenda";
+import AgendaData from "./pages/AgendaData/AgendaData";
+import AgendaHorario from "./pages/AgendaHorario/AgendaHorario";
+import Perfil from "./pages/Perfil/Perfil";
+import AgendaSucesso from "./pages/AgendaSucesso/AgendaSucesso";
+import AgendaProfissional from "./pages/AgendaProfissional/AgendaProfissional";
 
 export default function Routes() {
   return (
@@ -21,13 +22,11 @@ export default function Routes() {
           <WrapperRoutes>
             <Route path="/" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/cadastroconcluido" element={<CadastroConcluido />} />
-            <Route path="/paginainicial" element={<PaginaInicial />} />
-            <Route path="/agendamento" element={<Agendamento />} />
-            <Route
-              path="/agendamentoconcluido"
-              element={<AgendamentoConcluido />}
-            />
+            <Route path="/agenda" element={<Agenda />} />
+            <Route path="/data" element={<AgendaData />} />
+            <Route path="/horario" element={<AgendaHorario />} />
+            <Route path="/profissional" element={<AgendaProfissional />} />
+            <Route path="/sucesso" element={<AgendaSucesso />} />
             <Route path="/perfil" element={<Perfil />} />
           </WrapperRoutes>
         </UserStorage>

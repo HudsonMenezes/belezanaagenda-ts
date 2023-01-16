@@ -1,5 +1,3 @@
-import React from "react";
-
 import LogoSalao from "../../assets/logosalao.png";
 import { InfoStyles } from "./Styles";
 
