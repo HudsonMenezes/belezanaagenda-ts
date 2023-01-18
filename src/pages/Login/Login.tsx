@@ -17,14 +17,11 @@ export function Login() {
   const senha = useForm("senha");
   const { userLogin, error, loading } = useContext(UserContext);
 
-  const payload = {
-    email: email.value,
-    senha: senha.value,
-  };
-
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    userLogin(payload);
+    if (email.validate() && senha.validate()) {
+      userLogin(email.value, senha.value);
+    }
   }
 
   return (
