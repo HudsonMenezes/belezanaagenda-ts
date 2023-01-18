@@ -1,12 +1,5 @@
-import React, { useContext } from "react";
-// import "./PaginaInicial.css";
-
+import { useContext } from "react";
 import Header from "../../components/Header/Header";
-
-import corteMasculino from "../../assets/cortemasculino.png";
-import corteFeminino from "../../assets/cortefeminino.png";
-import escova from "../../assets/escova.png";
-import manicure from "../../assets/manicure.png";
 import capaSalao from "../../assets/capasalao.png";
 import logoSalao from "../../assets/logosalao.png";
 import equipe1 from "../../assets/equipe1.png";
@@ -24,7 +17,7 @@ function Agenda() {
     <div>
       <Header />
       <div id="boxHome">
-        <div className="conteinerBase">
+        <div className="conteinerBase ps-md-5">
           <section className="d-flex flex-column align-items-center">
             <div>
               <img src={capaSalao} alt="Banner Salão" className="bannersalao" />
@@ -43,7 +36,7 @@ function Agenda() {
             <br />
             <section>
               <p>
-                <h3>Oi, {user?.cliente.nome}</h3>O que vamos agendar hoje?
+                <h3>Oi, {user?.data.nome}</h3>O que vamos agendar hoje?
               </p>
             </section>
             <section className="servicos">
