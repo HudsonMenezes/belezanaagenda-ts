@@ -1,5 +1,5 @@
 import Input from "../../components/Input/Input";
-import { FormEvent } from "react";
+import { FormEvent, useContext } from "react";
 import { FormStyle, LogoStyle, FundoLogin, FundoLogin2 } from "./styles";
 import logo from "../../assets/logo2.png";
 import Error from "../../components/Helper/Error";
@@ -7,7 +7,8 @@ import Button from "../../components/Button/Button";
 import useForm from "../../components/Hooks/useForm";
 import fundo from "../../assets/fundo.png";
 import fundo2 from "../../assets/fundo2.png";
-import useApi from "../../components/Hooks/useApi";
+import { cadastroCliente } from "../../services/MainApi/clientes";
+import { UserContext } from "../../UserContext";
 
 function Cadastro() {
   const nome = useForm("nome");
@@ -15,18 +16,18 @@ function Cadastro() {
   const email = useForm("email");
   const senha = useForm("senha");
 
-  const { loginCreate, error, loading } = useApi();
-
-  const payload = {
-    nome: nome.value,
-    telefone: telefone.value,
-    email: email.value,
-    senha: senha.value,
-  };
+  const { userLogin, error, loading } = useContext(UserContext);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    loginCreate(payload);
+
+    const response = await cadastroCliente({
+      nome: nome.value,
+      telefone: telefone.value,
+      email: email.value,
+      senha: senha.value,
+    });
+    if (response.status === 200) userLogin(email.value, senha.value);
   };
 
   return (
