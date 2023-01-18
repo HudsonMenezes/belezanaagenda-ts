@@ -3,11 +3,13 @@ import {
   Dispatch,
   ReactNode,
   useCallback,
+  useEffect,
   useState,
 } from "react";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { LoginClientePayload } from "./models/models";
-import { loginCliente } from "./services/MainApi/clientes";
+import { loginCliente, pegarCliente } from "./services/MainApi/clientes";
 
 type ContextProviderData = {
   data: any;
@@ -15,7 +17,7 @@ type ContextProviderData = {
   user: {
     sucess: string;
     token: string;
-    cliente: {
+    data: {
       _id: string;
       nome: string;
       email: string;
@@ -28,6 +30,7 @@ type ContextProviderData = {
   error: null;
   loading: boolean;
   login: boolean;
+  id: any;
 };
 
 export const UserContext = createContext<ContextProviderData>(
@@ -39,6 +42,8 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
   const [login, setLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [{ token }, setToken, removeToken] = useCookies(["token"]);
+  const [{ id }, setId, removeId] = useCookies(["id"]);
   const navigate = useNavigate();
 
   const userLogout = useCallback(
@@ -47,10 +52,11 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setError(null);
       setLoading(false);
       setLogin(false);
-      localStorage.removeItem("token");
-      navigate("/login");
+      removeToken("token");
+      removeId("id");
+      navigate("/");
     },
-    [navigate]
+    [navigate, removeToken, removeId]
   );
 
   async function userLogin(payload: LoginClientePayload) {
@@ -58,12 +64,12 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setError(null);
       setLoading(true);
       const response = await loginCliente(payload);
-      console.log(response.data);
       if (response.status !== 200)
         throw new Error(`Error: ${response.statusText}`);
-      setUser(response.data);
       const token = response.data.token;
-      localStorage.setItem("token", token);
+      const id = response.data.cliente._id;
+      setToken("token", token);
+      setId("id", id);
       navigate("/agenda");
     } catch (err: any) {
       setError(err.message);
@@ -72,6 +78,34 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setLoading(false);
     }
   }
+
+  async function getUser(id: string) {
+    const response = pegarCliente(id);
+    const dados = await (await response).data;
+    setUser(dados);
+    setLogin(true);
+  }
+
+  useEffect(() => {
+    async function autoLogin() {
+      if (token && id) {
+        try {
+          setError(null);
+          setLoading(true);
+          await getUser(id);
+          setLogin(true);
+        } catch (err) {
+          alert("erro na validaçao do usuario");
+          userLogout();
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setLogin(false);
+      }
+    }
+    autoLogin();
+  }, [id, token, userLogout]);
 
   return (
     <UserContext.Provider
@@ -84,6 +118,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         error,
         loading,
         login,
+        id,
       }}
     >
       {children}
