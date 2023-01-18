@@ -1,80 +1,151 @@
 import styled from "styled-components";
 
-export const SidebarStyle = styled.div`
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  a > svg {
-    color: black;
-  }
-
-  .menu-bars {
-    font-size: 2rem;
-    background: none;
-  }
-
-  .nav-menu {
-    background-color: #FFC973;
-    width: 250px;
-    height: 100vh;
+export const SidebarStyle = styled.aside`
+  .aside {
+    height: 90%;
     display: flex;
-    justify-content: left;
-    position: fixed;
+    flex-direction: column-reverse;
+    position: absolute;
     top: 0;
-    right: -100%;
-    z-index: 999;
-    transition: 850ms;
+    left: 0;
+    z-index: 1;
   }
-  
-  .nav-menu a > svg {
-    color: #404040;
+  .aside-wrapper {
+    height: 85%;
+    background-color: #ffffff;
+    overflow: visible;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
-
-  .nav-menu.active {
-    right: 0;
-    z-index: 999;
-    transition: 350ms;
+  .aside-wrapper-mobile {
+    position: relative;
+    /* top: 0; */
+    bottom: -165%;
+    width: 100vw;
+    height: 25rem;
+    background-color: #ffc973;
   }
-
-  .nav-text {
+  .nav-links-mobile {
+    height: 22rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: end;
+  }
+  .nav-links {
+    height: 92.8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .nav-link-mobile {
+    margin: 0 auto;
+    width: 10rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    list-style: none;
-    height: 60px;
-  }
-
-  .nav-text a {
     text-decoration: none;
     color: #404040;
-    font-size: 16px;
+  }
+  .nav-link-mobile svg {
+    font-size: 24px;
+  }
+
+  .nav-links a {
+    display: flex;
+    text-align: center;
+    line-height: 3rem;
+    text-decoration: none;
+    color: #404040;
+  }
+  .nav-link {
     width: 100%;
     height: 100%;
-    padding: 8px;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    border-radius: 4px;
+  }
+  button {
+    border: none;
+    background-color: transparent;
+  }
+  .nav-link svg {
+    font-size: 24px;
   }
 
-  .nav-text a:hover {
-    background-color: #ffe1b0;
-    transition: 0.5s;
-  }
-
-  .nav-menu-items {
-    width: 100%;
-    color: #404040;
-    font-weight: bold;
-  }
-
-  .navbar-toggle {
-    width: 100%;
-    height: 80px;
+  .navMobile {
+    margin-top: 25px;
     display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    height: 92.5vh;
+    right: 0px;
+    padding: 0;
+    background: transparent;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .navMobileActive {
+    transition: 0.3s;
+    height: 17rem;
+    transform: initial;
+    opacity: 1;
+    pointer-events: initial;
+    z-index: 100;
+  }
+
+  @media (max-height: 359px) {
+    .aside-wrapper {
+      height: 70%;
+      justify-content: center;
+    }
+    .nav-links {
+      height: auto;
+    }
+    hr {
+      margin: 0.3rem;
+    }
+  }
+  @media (max-width: 375px) {
+    .aside-wrapper-mobile {
+      bottom: -90%;
+    }
+  }
+`;
+export const ButtonNavStyle = styled.menu`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  .mobileButton {
+    background: transparent;
+    color: black;
+    border-radius: 0.2rem;
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding-right: 30px;
+    border: 1px solid transparent;
+    transition: 0.1s;
+    cursor: pointer;
+  }
+  .mobileButton::after {
+    content: "";
+    display: block;
+    width: 1.2rem;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    box-shadow: 0 6px currentColor, 0 -6px currentColor;
+    transition: 0.2s;
+  }
+  .mobileButtonActive::after {
+    transform: rotate(90deg);
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 8px currentColor 0 -8px currentColor;
   }
 `;

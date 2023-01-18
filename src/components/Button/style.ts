@@ -5,8 +5,8 @@ export const ButtonStyle = styled.button`
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
   border: none;
-  border-radius: 0.4rem;
-  background: #FFC973;
+  border-radius: 1.25rem;
+  background: #ffc973;
   color: #404040;
   font-weight: bold;
   width: 90%;

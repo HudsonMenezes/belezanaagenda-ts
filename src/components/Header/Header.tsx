@@ -5,12 +5,12 @@ import Sidebar from "../Sidebar/Sidebar";
 
 function Header() {
   return (
-    <div>
+    <>
       <HeaderStyle className="headerStyle d-flex justify-content-between align-items-center">
         <img src={Logo} alt="Logo" className="logo" />
         <Sidebar />
       </HeaderStyle>
-    </div>
+    </>
   );
 }
 
