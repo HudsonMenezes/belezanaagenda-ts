@@ -10,7 +10,7 @@ export interface LoginClientePayload {
 }
 
 export interface ServicosProps {
-  id: string;
+  _id: string;
   servico: string;
   preco: string;
   duracao: string;
