@@ -8,7 +8,6 @@ import {
 } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { LoginClientePayload } from "./models/models";
 import { loginCliente, pegarCliente } from "./services/MainApi/clientes";
 
 type ContextProviderData = {
@@ -25,7 +24,7 @@ type ContextProviderData = {
       telefone: string;
     };
   } | null;
-  userLogin: (payload: LoginClientePayload) => Promise<void>;
+  userLogin: (email: string, senha: string) => Promise<void>;
   userLogout(): Promise<void>;
   error: null;
   loading: boolean;
@@ -59,11 +58,11 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
     [navigate, removeToken, removeId]
   );
 
-  async function userLogin(payload: LoginClientePayload) {
+  async function userLogin(email: string, senha: string) {
     try {
       setError(null);
       setLoading(true);
-      const response = await loginCliente(payload);
+      const response = await loginCliente({ email, senha });
       if (response.status !== 200)
         throw new Error(`Error: ${response.statusText}`);
       const token = response.data.token;
