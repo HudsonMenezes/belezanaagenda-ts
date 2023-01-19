@@ -7,7 +7,7 @@ import equipe2 from "../../assets/equipe2.png";
 import equipe3 from "../../assets/equipe3.png";
 import equipe4 from "../../assets/equipe4.png";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../components/Contexts/UserContext";
 import Servicos from "../../components/Servicos/Servicos";
 
 function Agenda() {

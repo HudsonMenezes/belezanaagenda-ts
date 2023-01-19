@@ -3,11 +3,11 @@ import Header from "../../components/Header/Header";
 import DatePicker from "../../components/Calendario/Calendario";
 import Button from "../../components/Button/Button";
 import backarow from "../../assets/back.png";
-import { UserContext } from "../../UserContext";
+import { UserAgenda } from "../../components/Contexts/UserAgenda";
 import { useNavigate } from "react-router-dom";
 
 function AgendaData() {
-  const { data, setData } = useContext(UserContext);
+  const { data, setData } = useContext(UserAgenda);
   const navigate = useNavigate();
 
   function handleSubmit() {

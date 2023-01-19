@@ -3,7 +3,7 @@ import { ptBR } from "date-fns/locale";
 import { useContext } from "react";
 import { DatePickerCalendar } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
-import { UserContext } from "../../UserContext";
+import { UserAgenda } from "../Contexts/UserAgenda";
 import { CalendarioStyle } from "./Styles";
 
 const modifiers = {
@@ -15,7 +15,7 @@ const modifiersClassNames = {
   highlight: "-highlight",
 };
 export default function DatePicker() {
-  const { data, setData } = useContext(UserContext);
+  const { data, setData } = useContext(UserAgenda);
   // console.log(data.toISOString());
 
   return (

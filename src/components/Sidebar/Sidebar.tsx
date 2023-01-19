@@ -11,7 +11,7 @@ import {
 } from "react-icons/ci";
 import useMedia from "../Hooks/useMedia";
 import { useState } from "react";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../Contexts/UserContext";
 
 const Sidebar = () => {
   const mobile = useMedia("(max-width: 48.24rem)");

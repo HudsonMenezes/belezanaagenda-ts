@@ -1,4 +1,5 @@
 import { LogoStyle, MiniImg, FundoLogin, FundoLogin2 } from "./Styles";
+import { FormStyle } from "../Cadastro/styles";
 import logo from "../../assets/logo2.png";
 import fundo from "../../assets/fundo.png";
 import fundo2 from "../../assets/fundo2.png";
@@ -9,11 +10,11 @@ import { FormEvent, useContext } from "react";
 import useForm from "../../components/Hooks/useForm";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../components/Contexts/UserContext";
 import Error from "../../components/Helper/Error";
 
 export function Login() {
-  const email = useForm("nome");
+  const email = useForm("email");
   const senha = useForm("senha");
   const { userLogin, error, loading } = useContext(UserContext);
 
@@ -32,7 +33,7 @@ export function Login() {
           <div className="mt-2 text-white">
             <p>Acesse sua conta</p>
           </div>
-          <form onSubmit={handleSubmit}>
+          <FormStyle onSubmit={handleSubmit}>
             <Input
               label="Nome"
               type="text"
@@ -57,7 +58,7 @@ export function Login() {
               </Button>
             )}
             <Error error={error} />
-          </form>
+          </FormStyle>
           <div>
             <p className="mt-4 text-white">
               Ainda não tem conta? <br />{" "}

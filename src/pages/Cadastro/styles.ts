@@ -7,14 +7,14 @@ export const FormStyle = styled.form`
   align-items: center;
   gap: 1.5rem;
 
-  input {
+  /* input {
     width: 330px;
-  }
+  } */
 `;
 
 export const LogoStyle = styled.img`
   width: 200px;
-  margin-bottom: 15px
+  margin-bottom: 15px;
 `;
 
 export const FundoLogin = styled.img`

@@ -8,7 +8,7 @@ import useForm from "../../components/Hooks/useForm";
 import fundo from "../../assets/fundo.png";
 import fundo2 from "../../assets/fundo2.png";
 import { cadastroCliente } from "../../services/MainApi/clientes";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../components/Contexts/UserContext";
 
 function Cadastro() {
   const nome = useForm("nome");

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../Contexts/UserContext";
 import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRouter = () => {
