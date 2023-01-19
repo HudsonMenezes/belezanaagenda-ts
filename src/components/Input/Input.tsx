@@ -25,7 +25,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <Style>
-      <label htmlFor={name}></label>
+      <label htmlFor={name}>{label}</label>
       <input
         id={name}
         name={name}

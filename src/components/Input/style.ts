@@ -4,10 +4,10 @@ const Style = styled.div`
   /* margin-bottom: 1rem; */
 
   > input {
+    border: 3px solid #ffc973;
     color: #fff;
     border-radius: 1rem;
-    width: 90%;
-    border: 3px solid #FFC973;
+    width: 19rem;
     max-width: 300px;
     height: 57px;
     padding: 1rem;
@@ -20,32 +20,22 @@ const Style = styled.div`
       color: #000;
       outline: none;
       border-color: #fb1;
-      background: white;
+      background: #fff;
       box-shadow: 0 0 0 3px #fea;
     }
   }
 
   > label {
-    display: block;
+    display: flex;
+    color: #fff;
     font-size: 1rem;
     line-height: 1;
-    padding-bottom: 0.5rem;
   }
 `;
 const Error = styled.p`
   color: #fff;
   font-size: 0.875rem;
-  margin-top: 0.25rem;
+  margin: 0.25rem;
 `;
 
 export { Style, Error };
-
-// anterior
-// border: 1px solid #eee;
-//     display: block;
-//     width: 100%;
-//     font-size: 1rem;
-//     padding: 0.8rem;
-//     border-radius: 0.4rem;
-//     background: #eee;
-//     transition: 0.2s;
