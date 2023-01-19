@@ -12,7 +12,7 @@ function AgendaData() {
 
   function handleSubmit() {
     if (data) {
-      setData(data.toISOString());
+      setData(data);
       navigate("/horario");
     }
   }
