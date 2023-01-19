@@ -1,7 +1,7 @@
 import { createContext, Dispatch, ReactNode, useState } from "react";
 type ContextAgenda = {
-  data: any;
-  hora: any;
+  data: any | Date;
+  hora: string;
   profissional: any;
   setData: Dispatch<any>;
   setHora: Dispatch<any>;
