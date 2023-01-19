@@ -23,11 +23,12 @@ function Cadastro() {
 
     const response = await cadastroCliente({
       nome: nome.value,
-      telefone: telefone.value,
       email: email.value,
       senha: senha.value,
+      telefone: telefone.value,
     });
-    if (response.status === 200) userLogin(email.value, senha.value);
+
+    if (response.status === 201) userLogin(email.value, senha.value);
   };
 
   return (

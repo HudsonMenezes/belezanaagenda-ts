@@ -64,6 +64,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         throw new Error(`Error: ${response.statusText}`);
       const token = response.data.token;
       const id = response.data.cliente._id;
+      await getUser(id);
       setToken("token", token);
       setId("id", id);
       navigate("/agenda");
@@ -89,8 +90,8 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         try {
           setError(null);
           setLoading(true);
-          await getUser(id);
           setLogin(true);
+          await getUser(id);
         } catch (err) {
           alert("erro na validaçao do usuario");
           userLogout();
