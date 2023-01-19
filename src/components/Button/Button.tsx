@@ -1,11 +1,17 @@
 import { ButtonStyle } from "./style";
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, useContext } from "react";
+import { UserAgenda } from "../Contexts/UserAgenda";
 
 const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
   ...props
 }) => {
-  return <ButtonStyle {...props}>{children}</ButtonStyle>;
+  const { setHora } = useContext(UserAgenda);
+  return (
+    <ButtonStyle onClick={() => setHora(children)} {...props}>
+      {children}
+    </ButtonStyle>
+  );
 };
 
 export default Button;

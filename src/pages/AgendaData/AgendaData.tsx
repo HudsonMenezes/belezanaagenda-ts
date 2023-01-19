@@ -14,10 +14,7 @@ function AgendaData() {
   const navigate = useNavigate();
 
   function handleSubmit() {
-    if (data) {
-      setData(data);
-      navigate("/horario");
-    }
+    if (data) return navigate("/horario");
   }
 
   return (

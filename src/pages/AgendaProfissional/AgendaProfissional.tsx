@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import Profissional from "../../components/Profissional/Profissional";
@@ -6,6 +6,7 @@ import { ProfissionalServico } from "../../services/MainApi/agendamento";
 import backarow from "../../assets/back.png";
 import { Stepper } from "react-form-stepper";
 import { TextoPasso } from "../AgendaData/Styles";
+import { UserAgenda } from "../../components/Contexts/UserAgenda";
 
 interface ProfissionalProps {
   profissional: {
@@ -18,6 +19,13 @@ interface ProfissionalProps {
 
 function AgendaProfissional() {
   const [profissionais, setProfissionais] = useState<ProfissionalProps[]>([]);
+  const { service, hora, data } = useContext(UserAgenda);
+
+  function handleSubmit() {
+    console.log(service);
+    console.log(hora);
+    console.log(data.toISOString());
+  }
 
   useEffect(() => {
     const data = async () => {
@@ -71,7 +79,7 @@ function AgendaProfissional() {
             />
           ))}
           <div className="text-center">
-            <Button type="submit" className="mt-2">
+            <Button onClick={handleSubmit} type="submit" className="mt-2">
               Confirmar
             </Button>
           </div>

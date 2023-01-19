@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ServicosProps } from "../../models/models";
 import { listarServico } from "../../services/MainApi/servicos";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import corte from "../../assets/corte.png";
 import escova from "../../assets/escova.png";
 import manicure from "../../assets/manicure.png";
 import maquiagem from "../../assets/maquiagem.png";
+import { UserAgenda } from "../Contexts/UserAgenda";
 
 const images = {
   "63bcb64c3a1a0dfe9f0ec32f": corte,
@@ -16,6 +17,7 @@ const images = {
 
 const Servicos = () => {
   const [Servi, setServi] = useState<ServicosProps[]>([]);
+  const { setService } = useContext(UserAgenda);
 
   useEffect(() => {
     const listaServicos = async () => {
@@ -32,7 +34,11 @@ const Servicos = () => {
   return (
     <>
       {Servi.map((servico) => (
-        <div key={servico._id} className="col itemHome">
+        <div
+          key={servico._id}
+          onClick={() => setService(servico._id)}
+          className="col itemHome"
+        >
           <Link to={"/data"} className="text-decoration-none text-black">
             <img src={images[servico._id] || ""} alt="" />
             <hr />
