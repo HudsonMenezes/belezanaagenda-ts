@@ -32,11 +32,7 @@ function AgendaData() {
             </div>
           </section>
           <Stepper
-            steps={[
-              { label: "Escolha Data" },
-              { label: "Escolha o Horário" },
-              { label: "Selecione o Profissional" },
-            ]}
+            steps={[{ label: "" }, { label: "" }, { label: "" }]}
             styleConfig={{
               activeBgColor: "#ffc973",
               activeTextColor: "#000",
