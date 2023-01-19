@@ -7,7 +7,7 @@ export const CalendarioStyle = styled.div`
   }
 
   .nice-dates-day.-highlight {
-    color: #fb1;
+    color: #e4acdd;
   }
 
   .nice-dates-day {
@@ -22,5 +22,17 @@ export const CalendarioStyle = styled.div`
   .nice-dates-day_month {
     font-size: 14px;
     top: -1px;
+  }
+
+  .nice-dates-day.-selected * {
+    color: #7d2a90;
+  }
+
+  .nice-dates-day:before {
+    background-color: #ffc973;
+  }
+
+  .nice-dates-day.-disabled {
+    color: #e4acdd;
   }
 `;

@@ -25,7 +25,7 @@ function AgendaData() {
           <section>
             <div className="backButton">
               <img src={backarow} alt="Voltar" className="m-2" />
-              <a href=".">Voltar</a>
+              <a href="./agenda">Voltar</a>
             </div>
           </section>
           <DatePicker />

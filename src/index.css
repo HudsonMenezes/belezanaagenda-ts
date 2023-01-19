@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-decoration: none;
   background-color: #742092;
 }
 
-#box{
+#box {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -18,30 +18,30 @@ body {
   overflow-y: hidden;
 }
 
-#boxHome{
-  background-color: #FFFFFF;
+#boxHome {
+  background-color: #ffffff;
   width: 100%;
   min-width: 300px;
   text-align: left;
 }
 
-.conteinerBase{
+.conteinerBase {
   max-width: 900px;
   margin: auto;
 }
 
-.linkCollor{
-  color: #FFC973;
+.linkCollor {
+  color: #ffc973;
   text-decoration: none;
 }
 
-.headerStyle{
-  background-color: #FFC973;
+.headerStyle {
+  background-color: #ffc973;
   padding: 0 30px;
 }
 
-.itemHome{
-  background-color: #FFE3B3;
+.itemHome {
+  background-color: #ffe3b3;
   margin: 10px;
   padding: 10px;
   border-radius: 20px;
@@ -53,47 +53,47 @@ body {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-#boxHome h1{
+#boxHome h1 {
   color: #742092;
   font-weight: 600;
 }
 
-#boxHome h2{
+#boxHome h2 {
   font-weight: 400;
   font-size: 25px;
   padding-top: 30px;
 }
 
-#boxHome h3{
+#boxHome h3 {
   font-weight: 500;
   font-size: 16px;
 }
 
-#boxHome h4{
+#boxHome h4 {
   font-size: 13px;
-  color: #B9B9B9;
+  color: #b9b9b9;
 }
 
-.ajusteFonte{
+.ajusteFonte {
   font-size: 35px;
-  color: #B9B9B9;
+  color: #b9b9b9;
   font-weight: 300;
 }
 
-.bannersalao{
+.bannersalao {
   width: 100%;
 }
 
-.logoHome{
+.logoHome {
   margin-top: -30px;
 }
 
-.spanEquipe{
-  color: #C858BA;
+.spanEquipe {
+  color: #c858ba;
   font-weight: 700;
 }
 
-.equipeItem{
+.equipeItem {
   border-radius: 20px;
   width: 340px;
   height: 245px;
@@ -102,81 +102,82 @@ body {
   margin: 10px;
 }
 
-.equipeItem img{
+.equipeItem img {
   height: 245px;
 }
 
-.equipeItem h3{
- font-weight: 500;
- margin-bottom: -4px;
+.equipeItem h3 {
+  font-weight: 500;
+  margin-bottom: -4px;
 }
 
-.buttonEquipe{
+.buttonEquipe {
   border-radius: 15px;
   width: 150px;
   height: 30px;
-  background-color: #C858BA;
+  background-color: #c858ba;
   text-align: center;
   padding: 2px;
 }
 
-.buttonEquipe p{
-  color: #FFFFFF;
+.buttonEquipe p {
+  color: #ffffff;
 }
 
-.backButton{
+.backButton {
   text-align: right;
   padding: 15px 15px;
 }
 
-.backButton a{
+.backButton a {
   text-decoration: none;
-  color: #B9B9B9;
+  color: #b9b9b9;
   font-size: 20px;
 }
 
-.agendamentoPage{
+.agendamentoPage {
   padding: 20px;
 }
 
-.agendamentoMarcado{
-  color: #FFFFFF;
+.agendamentoMarcado {
+  color: #ffffff;
   padding: 30px;
 }
 
-.agendamentoMarcado h3{
+.agendamentoMarcado h3 {
   font-weight: 400;
   font-size: 20px;
   padding: 5px;
 }
-.agendamentoMarcado h4{
+.agendamentoMarcado h4 {
   font-weight: 300;
   font-size: 17px;
 }
 
-.agendamentoMarcado h5{
+.agendamentoMarcado h5 {
   font-weight: 300;
   font-size: 15px;
-  color: #FFC973;
+  color: #ffc973;
 }
 
-.agendamentoMarcado span{
+.agendamentoMarcado span {
   font-weight: 300;
   font-size: 15px;
 }
 
-.tab1Perfil{
+.tab1Perfil {
   padding: 30px;
-  background-color: #FFE3B3;
+  background-color: #ffe3b3;
 }
 
-.tab2Perfil{
+.tab2Perfil {
   padding: 30px;
-  background-color: #FFC973;
+  background-color: #ffc973;
 }
 
-.buttonTab1,.buttonTab1:hover{
-  background-color: #FFE3B3;
+.buttonTab1,
+.buttonTab1:hover {
+  background-color: #ffe3b3;
   border-radius: 0 20px 0 0;
   color: #404040;
   font-weight: 500;
@@ -185,8 +186,9 @@ body {
   width: 50%;
 }
 
-.buttonTab2,.buttonTab2:hover{
-  background-color: #FFC973;
+.buttonTab2,
+.buttonTab2:hover {
+  background-color: #ffc973;
   border-radius: 20px 0 0 0;
   color: #404040;
   font-weight: 300;
@@ -195,13 +197,13 @@ body {
   width: 50%;
 }
 
-.nav a{
+.nav a {
   font-size: 20px;
   text-decoration: none;
   text-align: center;
 }
 
-.perfilButton{
+.perfilButton {
   border: 1px solid black;
   border-radius: 20px;
   width: 250px;

@@ -1,6 +1,6 @@
 // import Sidebar from "../Sidebar/Sidebar";
 import { HeaderStyle } from "./Styles";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo3.png";
 import Sidebar from "../Sidebar/Sidebar";
 
 function Header() {

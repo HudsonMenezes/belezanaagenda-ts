@@ -26,7 +26,7 @@ function Agenda() {
               <img src={logoSalao} alt="Logo Salão" className="logosalao" />
             </div>
           </section>
-          <div className="m-3">
+          <div className="m-3 container">
             <section>
               <p>
                 <h1>Salão Novo Visual</h1>

@@ -37,7 +37,7 @@ function AgendaProfissional() {
           <section>
             <div className="backButton">
               <img src={backarow} alt="Voltar" className="m-2" />
-              <a href=".">Voltar</a>
+              <a href="./data">Voltar</a>
             </div>
           </section>
           <p className="mt-5">Quem vai te atender:</p>

@@ -88,7 +88,8 @@ export const SidebarStyle = styled.aside`
   }
   .navMobileActive {
     transition: 0.3s;
-    height: 17rem;
+    height: 18rem;
+    position: fixed;
     transform: initial;
     opacity: 1;
     pointer-events: initial;
