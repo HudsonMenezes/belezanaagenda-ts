@@ -5,6 +5,8 @@ import backarow from "../../assets/back.png";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import HourPicker from "../../components/Horas/HourPicker";
+import { Stepper } from "react-form-stepper";
+import { TextoPasso } from "../AgendaData/Styles";
 
 function AgendaHorario() {
   const navigate = useNavigate();
@@ -25,6 +27,28 @@ function AgendaHorario() {
               <Link to="/data">Voltar</Link>
             </div>
           </section>
+          <Stepper
+            steps={[{ label: "" }, { label: "" }, { label: "" }]}
+            styleConfig={{
+              activeBgColor: "#ffc973",
+              activeTextColor: "#000",
+              inactiveBgColor: "#eaeaea",
+              inactiveTextColor: "#000",
+              completedBgColor: "#ffc973",
+              completedTextColor: "#000",
+              size: "3em",
+              circleFontSize: 16,
+              labelFontSize: 14,
+              borderRadius: 50,
+              fontWeight: 4,
+            }}
+            activeStep={1}
+          />
+          <TextoPasso>
+            2º PASSO <br />
+            <span>Escolha o horário</span>
+          </TextoPasso>
+
           <HourPicker />
           <div className="text-center">
             <Button onClick={handleSubmit} type="submit" className="mt-3">
