@@ -28,6 +28,7 @@ type ContextProviderData = {
   loading: boolean;
   login: boolean;
   id: any;
+  token: string;
 };
 
 export const UserContext = createContext<ContextProviderData>(
@@ -89,8 +90,8 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         try {
           setError(null);
           setLoading(true);
-          await getUser(id);
           setLogin(true);
+          await getUser(id);
         } catch (err) {
           alert("erro na validaçao do usuario");
           userLogout();
@@ -114,6 +115,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         loading,
         login,
         id,
+        token,
       }}
     >
       {children}

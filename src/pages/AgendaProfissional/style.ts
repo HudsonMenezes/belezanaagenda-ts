@@ -1,25 +1,5 @@
 import styled from "styled-components";
-
-export const TextoPasso = styled.p`
-  font-size: 40px;
-  color: #b9b9b9;
-  line-height: 36px;
-  letter-spacing: 1px;
-  margin-top: 40px;
-
-  span {
-    font-size: 24px;
-    color: #742092;
-    font-weight: 700;
-  }
-  @media (max-width: 40rem) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 1rem;
-  }
-`;
-export const SectionStepOne = styled.section`
+export const SectionStepThree = styled.section`
   width: 100%;
   height: auto;
   box-sizing: border-box;
@@ -29,6 +9,13 @@ export const SectionStepOne = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 865px;
+  }
+  .reative {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .textStep {
@@ -45,20 +32,22 @@ export const SectionStepOne = styled.section`
     }
     .textStep {
       background-color: transparent;
+      height: 0px;
       position: relative;
-      bottom: -90%;
-      right: 21%;
+      bottom: -52%;
+      right: 15%;
     }
-    .datePicker {
+
+    .profissionalPicker {
       height: auto;
     }
     .step {
       position: relative;
-      top: -9%;
+      top: -24%;
     }
     .backButton {
       position: relative;
-      top: -230px;
+      top: -325px;
     }
   }
 `;

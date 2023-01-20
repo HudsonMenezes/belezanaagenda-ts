@@ -1,83 +1,105 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
-import Profissional from "../../components/Profissional/Profissional";
-import { ProfissionalServico } from "../../services/MainApi/agendamento";
 import backarow from "../../assets/back.png";
 import { Stepper } from "react-form-stepper";
 import { TextoPasso } from "../AgendaData/Styles";
-
-interface ProfissionalProps {
-  profissional: {
-    nome: string;
-  };
-  servico: {
-    servico: string;
-  };
-}
+import { UserAgenda } from "../../components/Contexts/UserAgenda";
+import { listarProfissionalServicoId } from "../../services/MainApi/servicos";
+import { SectionStepThree } from "./style";
+import Profissional from "../../components/Profissional/Profissional";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../components/Contexts/UserContext";
 
 function AgendaProfissional() {
-  const [profissionais, setProfissionais] = useState<ProfissionalProps[]>([]);
+  const {
+    service,
+    hora,
+    data,
+    setProfissional,
+    profissional,
+    criarNovaAgenda,
+  } = useContext(UserAgenda);
+  const { id, token } = useContext(UserContext);
+  let idProf = service;
+
+  const formataData = (data: any) => {
+    let dia = new Date(data);
+    return `${dia.getFullYear()}/${dia.getMonth() + 1}/${dia.getDate()}`;
+  };
 
   useEffect(() => {
     const data = async () => {
       try {
-        const response = await ProfissionalServico();
-        setProfissionais(response.data);
+        const response = await listarProfissionalServicoId(idProf);
+        setProfissional(response.data);
+        console.log(response.data);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
     data();
-  }, [setProfissionais]);
+  }, [setProfissional, idProf]);
 
+  function handleSubmit() {
+    const payload = new FormData();
+
+    payload.append("profissionalServico", idProf);
+    payload.append("cliente", id);
+    payload.append("data", `${formataData(data)} ${hora}`);
+
+    criarNovaAgenda(payload, token);
+  }
   return (
-    <div>
-      <div id="boxHome">
-        <Header />
-        <div className="conteinerBase agendamentoPage">
-          <section>
-            <div className="backButton">
-              <img src={backarow} alt="Voltar" className="m-2" />
-              <a href="./horario">Voltar</a>
-            </div>
-          </section>
-          <Stepper
-            steps={[{ label: "" }, { label: "" }, { label: "" }]}
-            styleConfig={{
-              activeBgColor: "#ffc973",
-              activeTextColor: "#000",
-              inactiveBgColor: "#eaeaea",
-              inactiveTextColor: "#000",
-              completedBgColor: "#ffc973",
-              completedTextColor: "#000",
-              size: "3em",
-              circleFontSize: 16,
-              labelFontSize: 14,
-              borderRadius: 50,
-              fontWeight: 4,
-            }}
-            activeStep={2}
-          />
+    <SectionStepThree>
+      <Header />
+      <div className="container-grid">
+        <div className="textStep">
           <TextoPasso>
             3º PASSO <br />
             <span>Escolha o profissional</span>
           </TextoPasso>
-          <p className="mt-5">Quem vai te atender:</p>
-          {profissionais.map((prof) => (
-            <Profissional
-              nome={prof.profissional?.nome}
-              servico={prof.servico?.servico}
+        </div>
+        <div className="arrow">
+          <div className="step">
+            <Stepper
+              steps={[{ label: "" }, { label: "" }, { label: "" }]}
+              styleConfig={{
+                activeBgColor: "#ffc973",
+                activeTextColor: "#000",
+                inactiveBgColor: "#eaeaea",
+                inactiveTextColor: "#000",
+                completedBgColor: "#ffc973",
+                completedTextColor: "#000",
+                size: "3em",
+                circleFontSize: 16,
+                labelFontSize: 14,
+                borderRadius: 50,
+                fontWeight: 4,
+              }}
+              activeStep={2}
             />
-          ))}
-          <div className="text-center">
-            <Button type="submit" className="mt-2">
-              Confirmar
-            </Button>
+          </div>
+          <div className="profissionalPicker">
+            <div className="backButton">
+              <img src={backarow} alt="Voltar" className="m-2" />
+              <Link to="/horario">Voltar</Link>
+            </div>
+            <div className="reative">
+              {profissional && (
+                <Profissional
+                  nome={profissional.profissional?.nome}
+                  servico={profissional.servico?.servico}
+                />
+              )}
+              <Button onClick={handleSubmit} type="submit" className="mt-5">
+                Confirmar
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </SectionStepThree>
   );
 }
 export default AgendaProfissional;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ConfirmImgStyle = styled.img`
   margin: 20px 0;
-  width: 150px
+  width: 150px;
 `;
 
 export const CaminhoStyle = styled.p`
@@ -14,7 +14,7 @@ export const CaminhoStyle = styled.p`
 export const BoxStyle = styled.div`
   border-radius: 10px;
   padding: 21px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   box-shadow: 1px 2px 2px 1px rgba(219, 219, 219, 1);
   width: 330px;
   height: 206px;
@@ -42,5 +42,54 @@ export const TextoStyle = styled.div`
 
   span {
     color: #626060;
+  }
+`;
+export const SectionStepTwo = styled.section`
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  background-color: #fff;
+
+  .container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 865px;
+  }
+  .hourPicker {
+    margin-top: 20px;
+  }
+
+  .textStep {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffc973;
+    min-height: 90%;
+  }
+
+  @media (max-width: 40rem) {
+    .container-grid {
+      grid-template-columns: 1fr;
+    }
+    .textStep {
+      background-color: transparent;
+      position: relative;
+      bottom: -60%;
+      right: 18%;
+    }
+    .hourPicker {
+      margin-top: 0;
+      height: auto;
+      position: relative;
+      top: -10%;
+    }
+    .step {
+      position: relative;
+      top: -18%;
+    }
+    .backButton {
+      position: relative;
+      top: -230px;
+    }
   }
 `;

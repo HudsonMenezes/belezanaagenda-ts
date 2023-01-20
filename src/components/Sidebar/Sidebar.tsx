@@ -5,7 +5,7 @@ import {
   CiSettings,
   CiUser,
   CiLogout,
-  CiCalendar,
+  CiCalendarDate,
   CiHeart,
   CiStar,
 } from "react-icons/ci";
@@ -58,7 +58,7 @@ const Sidebar = () => {
                 className={`${mobile ? "nav-link-mobile" : "nav-link px-2 "}`}
                 to="/agenda"
               >
-                <CiCalendar />
+                <CiCalendarDate />
                 <span className="ms-1 d-xl-inline d-md-none nav-iten">
                   Minha Agenda
                 </span>

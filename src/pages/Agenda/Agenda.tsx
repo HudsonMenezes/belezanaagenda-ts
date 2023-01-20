@@ -26,7 +26,7 @@ function Agenda() {
               <img src={logoSalao} alt="Logo Salão" className="logosalao" />
             </div>
           </section>
-          <div className="m-3 container">
+          <div className="container-fluid">
             <section>
               <p>
                 <h1>Salão Novo Visual</h1>
@@ -39,7 +39,7 @@ function Agenda() {
                 <h3>Oi, {user?.data.nome}</h3>O que vamos agendar hoje?
               </p>
             </section>
-            <section className="servicos">
+            <section className="servicos container-fluid">
               <div className="row">
                 <Servicos />
               </div>

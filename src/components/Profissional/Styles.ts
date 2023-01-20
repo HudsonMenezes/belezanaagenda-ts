@@ -1,22 +1,27 @@
 import styled from "styled-components";
 
 export const ProfissionalStyle = styled.section`
-  margin-top: 1rem;
-  width: 100%;
-  :last-child {
-    margin-bottom: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 330px;
+  height: 98px;
+  border: 1px solid #ffc973;
+  border-radius: 20px;
+  img {
+    width: 65px;
+    height: 62.64px;
+    border-radius: 50px;
   }
-
-  > div {
+  .icone {
     display: flex;
-    justify-content: space-around;
-    border: 1px solid #000000;
-    border-radius: 4px;
-    padding: 1rem;
+    justify-content: center;
     align-items: center;
-
-    img {
-      height: 59px;
-    }
+    width: 85px;
+    height: 100%;
+    font-size: 35px;
+    color: #742092;
+    border-radius: 0 20px 20px 0;
+    background-color: #ffc973;
   }
 `;

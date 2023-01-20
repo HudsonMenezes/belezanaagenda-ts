@@ -78,7 +78,6 @@ export const SidebarStyle = styled.aside`
     margin-top: 25px;
     display: flex;
     position: absolute;
-    height: 92.5vh;
     right: 0px;
     padding: 0;
     background: transparent;

@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
-import { ServicosProps } from "../../models/models";
-import { listarServico } from "../../services/MainApi/servicos";
+import { useContext, useEffect, useState } from "react";
+import { ProfissionalServicoProps, ServicosProps } from "../../models/models";
+import {
+  listarProfissionalServico,
+  listarServico,
+} from "../../services/MainApi/servicos";
 import { Link } from "react-router-dom";
 import corte from "../../assets/corte.png";
 import escova from "../../assets/escova.png";
 import manicure from "../../assets/manicure.png";
 import maquiagem from "../../assets/maquiagem.png";
+import { UserAgenda } from "../Contexts/UserAgenda";
 
 const images = {
   "63bcb64c3a1a0dfe9f0ec32f": corte,
@@ -15,12 +19,13 @@ const images = {
 } as Record<string, string>;
 
 const Servicos = () => {
-  const [Servi, setServi] = useState<ServicosProps[]>([]);
+  const [Servi, setServi] = useState<ProfissionalServicoProps[]>([]);
+  const { setService } = useContext(UserAgenda);
 
   useEffect(() => {
     const listaServicos = async () => {
       try {
-        const response = await listarServico();
+        const response = await listarProfissionalServico();
         setServi(response.data);
       } catch (err) {
         console.log(err);
@@ -32,11 +37,15 @@ const Servicos = () => {
   return (
     <>
       {Servi.map((servico) => (
-        <div key={servico._id} className="col itemHome">
+        <div
+          key={servico._id}
+          onClick={() => setService(servico._id)}
+          className="col itemHome"
+        >
           <Link to={"/data"} className="text-decoration-none text-black">
-            <img src={images[servico._id] || ""} alt="" />
+            <img src={images[servico.servico._id] || ""} alt="" />
             <hr />
-            <p>{servico.servico}</p>
+            <p>{servico.servico.servico}</p>
           </Link>
         </div>
       ))}
