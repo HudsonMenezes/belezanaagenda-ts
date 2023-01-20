@@ -32,9 +32,10 @@ export const SectionStepThree = styled.section`
     }
     .textStep {
       background-color: transparent;
+      height: 0px;
       position: relative;
-      bottom: -90%;
-      right: 21%;
+      bottom: -52%;
+      right: 15%;
     }
 
     .profissionalPicker {
@@ -42,11 +43,11 @@ export const SectionStepThree = styled.section`
     }
     .step {
       position: relative;
-      top: -11%;
+      top: -24%;
     }
     .backButton {
       position: relative;
-      top: -230px;
+      top: -325px;
     }
   }
 `;

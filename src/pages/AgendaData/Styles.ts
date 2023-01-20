@@ -54,7 +54,7 @@ export const SectionStepOne = styled.section`
     }
     .step {
       position: relative;
-      top: -11%;
+      top: -9%;
     }
     .backButton {
       position: relative;

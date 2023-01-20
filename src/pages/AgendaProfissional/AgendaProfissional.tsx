@@ -68,7 +68,7 @@ function AgendaProfissional() {
               <img src={backarow} alt="Voltar" className="m-2" />
               <Link to="/horario">Voltar</Link>
             </div>
-            <div className="reative pt-5">
+            <div className="reative">
               {profissional && (
                 <Profissional
                   nome={profissional.profissional?.nome}
