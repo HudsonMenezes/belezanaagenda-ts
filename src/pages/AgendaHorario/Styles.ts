@@ -74,15 +74,18 @@ export const SectionStepTwo = styled.section`
     .textStep {
       background-color: transparent;
       position: relative;
-      bottom: -90%;
-      right: 21%;
+      bottom: -60%;
+      right: 18%;
     }
     .hourPicker {
+      margin-top: 0;
       height: auto;
+      position: relative;
+      top: -10%;
     }
     .step {
       position: relative;
-      top: -11%;
+      top: -18%;
     }
     .backButton {
       position: relative;
