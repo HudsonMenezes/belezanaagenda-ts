@@ -53,7 +53,7 @@ function AgendaData() {
               <Link to="/agenda">Voltar</Link>
             </div>
             <DatePicker />
-            <Button onClick={handleSubmit} type="submit" className="mt-2">
+            <Button onClick={handleSubmit} type="submit" className="mt-3">
               Confirmar
             </Button>
           </div>
