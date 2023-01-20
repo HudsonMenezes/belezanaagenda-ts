@@ -21,3 +21,16 @@ export interface ProfissionalProps {
   nome: string;
   servico: string;
 }
+
+export interface ProfissionalServicoProps {
+  _id: string;
+  profissional: {
+    _id: string;
+    nome: string;
+    email: string;
+  };
+  servico: {
+    _id: string;
+    servico: string;
+  };
+}

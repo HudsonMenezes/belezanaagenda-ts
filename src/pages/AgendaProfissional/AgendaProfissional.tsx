@@ -1,44 +1,37 @@
 import { useContext, useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
-import Profissional from "../../components/Profissional/Profissional";
-import { ProfissionalServico } from "../../services/MainApi/agendamento";
 import backarow from "../../assets/back.png";
 import { Stepper } from "react-form-stepper";
 import { TextoPasso } from "../AgendaData/Styles";
 import { UserAgenda } from "../../components/Contexts/UserAgenda";
-
-interface ProfissionalProps {
-  profissional: {
-    nome: string;
-  };
-  servico: {
-    servico: string;
-  };
-}
+import { listarProfissionalServicoId } from "../../services/MainApi/servicos";
+import Profissional from "../../components/Profissional/Profissional";
 
 function AgendaProfissional() {
-  const [profissionais, setProfissionais] = useState<ProfissionalProps[]>([]);
-  const { service, hora, data } = useContext(UserAgenda);
+  // const [profiss, setProfiss] = useState<ProfissionalServicoProps[]>([]);
+  const { service, hora, data, setProfissional, profissional } =
+    useContext(UserAgenda);
+  let id = service;
+
+  useEffect(() => {
+    const data = async () => {
+      try {
+        const response = await listarProfissionalServicoId(id);
+        setProfissional(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    data();
+  }, [setProfissional, id]);
 
   function handleSubmit() {
     console.log(service);
     console.log(hora);
     console.log(data.toISOString());
   }
-
-  useEffect(() => {
-    const data = async () => {
-      try {
-        const response = await ProfissionalServico();
-        setProfissionais(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    data();
-  }, [setProfissionais]);
-
   return (
     <div>
       <div id="boxHome">
@@ -72,12 +65,12 @@ function AgendaProfissional() {
             <span>Escolha o profissional</span>
           </TextoPasso>
           <p className="mt-5">Quem vai te atender:</p>
-          {profissionais.map((prof) => (
+          {profissional && (
             <Profissional
-              nome={prof.profissional?.nome}
-              servico={prof.servico?.servico}
+              nome={profissional.profissional?.nome}
+              servico={profissional.servico?.servico}
             />
-          ))}
+          )}
           <div className="text-center">
             <Button onClick={handleSubmit} type="submit" className="mt-2">
               Confirmar

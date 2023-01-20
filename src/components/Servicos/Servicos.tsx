@@ -1,6 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { ServicosProps } from "../../models/models";
-import { listarServico } from "../../services/MainApi/servicos";
+import { ProfissionalServicoProps, ServicosProps } from "../../models/models";
+import {
+  listarProfissionalServico,
+  listarServico,
+} from "../../services/MainApi/servicos";
 import { Link } from "react-router-dom";
 import corte from "../../assets/corte.png";
 import escova from "../../assets/escova.png";
@@ -16,13 +19,13 @@ const images = {
 } as Record<string, string>;
 
 const Servicos = () => {
-  const [Servi, setServi] = useState<ServicosProps[]>([]);
+  const [Servi, setServi] = useState<ProfissionalServicoProps[]>([]);
   const { setService } = useContext(UserAgenda);
 
   useEffect(() => {
     const listaServicos = async () => {
       try {
-        const response = await listarServico();
+        const response = await listarProfissionalServico();
         setServi(response.data);
       } catch (err) {
         console.log(err);
@@ -40,9 +43,9 @@ const Servicos = () => {
           className="col itemHome"
         >
           <Link to={"/data"} className="text-decoration-none text-black">
-            <img src={images[servico._id] || ""} alt="" />
+            <img src={images[servico.servico._id] || ""} alt="" />
             <hr />
-            <p>{servico.servico}</p>
+            <p>{servico.servico.servico}</p>
           </Link>
         </div>
       ))}
