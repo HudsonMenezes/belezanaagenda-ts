@@ -12,7 +12,7 @@ export const SidebarStyle = styled.aside`
   }
   .aside-wrapper {
     height: 85%;
-    background-color: #ffffff;
+    background-color: transparent;
     overflow: visible;
     display: flex;
     justify-content: space-evenly;

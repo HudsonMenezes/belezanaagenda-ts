@@ -67,8 +67,8 @@ function Agendamento() {
                           alt="Imagem do Profissional"
                         />
                         <TextoStyle>
-                          <p>{profissional.servico.servico}</p>
-                          <span>{profissional.profissional.nome}</span>
+                          <p>{profissional?.servico.servico}</p>
+                          <span>{profissional?.profissional.nome}</span>
                         </TextoStyle>
                       </div>
                       <hr />

@@ -26,6 +26,7 @@ body {
 #boxHome {
   background-color: #ffffff;
   width: 100%;
+  height: 100vh;
   min-width: 300px;
   text-align: left;
 }

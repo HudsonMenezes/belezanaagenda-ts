@@ -49,7 +49,7 @@ const Sidebar = () => {
                 to="/perfil"
               >
                 <CiUser />
-                <span className="ms-1 d-xl-inline d-md-none nav-iten">
+                <span className="ms-1 d-xl-none d-md-none nav-iten">
                   Meu Perfil
                 </span>
               </Link>
@@ -59,7 +59,7 @@ const Sidebar = () => {
                 to="/agenda"
               >
                 <CiCalendarDate />
-                <span className="ms-1 d-xl-inline d-md-none nav-iten">
+                <span className="ms-1 d-xl-none d-md-none nav-iten">
                   Minha Agenda
                 </span>
               </Link>
@@ -69,7 +69,7 @@ const Sidebar = () => {
                 to="/projetos"
               >
                 <CiHeart />
-                <span className="ms-1 d-xl-inline d-md-none nav-iten">
+                <span className="ms-1 d-xl-none d-md-none nav-iten">
                   Remarcar horário
                 </span>
               </Link>
@@ -79,17 +79,17 @@ const Sidebar = () => {
                 to="/sobre"
               >
                 <CiStar />
-                <span className="ms-1 d-xl-inline d-md-none nav-iten">
+                <span className="ms-1 d-xl-none d-md-none nav-iten">
                   Sobre o salão
                 </span>
               </Link>
               <hr />
               <Link
                 className={`${mobile ? "nav-link-mobile" : "nav-link px-2 "}`}
-                to="/configuracao"
+                to="/agenda"
               >
                 <CiSettings />
-                <span className="ms-1 d-xl-inline d-md-none nav-iten">
+                <span className="ms-1 d-xl-none d-md-none nav-iten">
                   Configuração
                 </span>
               </Link>
@@ -99,9 +99,7 @@ const Sidebar = () => {
                 onClick={userLogout}
               >
                 <CiLogout />
-                <span className="ms-1 d-xl-inline d-md-none nav-iten">
-                  Sair
-                </span>
+                <span className="ms-1 d-xl-none d-md-none nav-iten">Sair</span>
               </button>
             </nav>
           </div>
