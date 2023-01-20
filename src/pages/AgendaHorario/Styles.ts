@@ -77,7 +77,7 @@ export const SectionStepTwo = styled.section`
       bottom: -90%;
       right: 21%;
     }
-    .datePicker {
+    .hourPicker {
       height: auto;
     }
     .step {

@@ -24,11 +24,7 @@ function AgendaHorario() {
         <div className="textStep">
           <TextoPasso>
             2º PASSO <br />
-            <span>
-              Escolha o
-              <br />
-              horário
-            </span>
+            <span>Escolha o horário</span>
           </TextoPasso>
         </div>
         <div className="arrow">

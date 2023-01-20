@@ -6,7 +6,9 @@ import { Stepper } from "react-form-stepper";
 import { TextoPasso } from "../AgendaData/Styles";
 import { UserAgenda } from "../../components/Contexts/UserAgenda";
 import { listarProfissionalServicoId } from "../../services/MainApi/servicos";
+import { SectionStepThree } from "./style";
 import Profissional from "../../components/Profissional/Profissional";
+import { Link } from "react-router-dom";
 
 function AgendaProfissional() {
   const { service, hora, data, setProfissional, profissional } =
@@ -32,52 +34,55 @@ function AgendaProfissional() {
     console.log(data.toISOString());
   }
   return (
-    <div>
-      <div id="boxHome">
-        <Header />
-        <div className="conteinerBase agendamentoPage">
-          <section>
-            <div className="backButton">
-              <img src={backarow} alt="Voltar" className="m-2" />
-              <a href="./horario">Voltar</a>
-            </div>
-          </section>
-          <Stepper
-            steps={[{ label: "" }, { label: "" }, { label: "" }]}
-            styleConfig={{
-              activeBgColor: "#ffc973",
-              activeTextColor: "#000",
-              inactiveBgColor: "#eaeaea",
-              inactiveTextColor: "#000",
-              completedBgColor: "#ffc973",
-              completedTextColor: "#000",
-              size: "3em",
-              circleFontSize: 16,
-              labelFontSize: 14,
-              borderRadius: 50,
-              fontWeight: 4,
-            }}
-            activeStep={2}
-          />
+    <SectionStepThree>
+      <Header />
+      <div className="container-grid">
+        <div className="textStep">
           <TextoPasso>
             3º PASSO <br />
             <span>Escolha o profissional</span>
           </TextoPasso>
-          <p className="mt-5">Quem vai te atender:</p>
-          {profissional && (
-            <Profissional
-              nome={profissional.profissional?.nome}
-              servico={profissional.servico?.servico}
+        </div>
+        <div className="arrow">
+          <div className="step">
+            <Stepper
+              steps={[{ label: "" }, { label: "" }, { label: "" }]}
+              styleConfig={{
+                activeBgColor: "#ffc973",
+                activeTextColor: "#000",
+                inactiveBgColor: "#eaeaea",
+                inactiveTextColor: "#000",
+                completedBgColor: "#ffc973",
+                completedTextColor: "#000",
+                size: "3em",
+                circleFontSize: 16,
+                labelFontSize: 14,
+                borderRadius: 50,
+                fontWeight: 4,
+              }}
+              activeStep={2}
             />
-          )}
-          <div className="text-center">
-            <Button onClick={handleSubmit} type="submit" className="mt-2">
-              Confirmar
-            </Button>
+          </div>
+          <div className="profissionalPicker">
+            <div className="backButton">
+              <img src={backarow} alt="Voltar" className="m-2" />
+              <Link to="/horario">Voltar</Link>
+            </div>
+            <div className="reative pt-5">
+              {profissional && (
+                <Profissional
+                  nome={profissional.profissional?.nome}
+                  servico={profissional.servico?.servico}
+                />
+              )}
+              <Button onClick={handleSubmit} type="submit" className="mt-5">
+                Confirmar
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </SectionStepThree>
   );
 }
 export default AgendaProfissional;
