@@ -1,13 +1,18 @@
 import { useContext } from "react";
-import { UserContext } from "../../components/Contexts/UserContext";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import imgprofissional from "../../assets/imgprofissional.png";
 
 import { BoxStyle, ClienteStyle, ImgStyle, TextoStyle } from "./Styles";
+import { UserAgenda } from "../../components/Contexts/UserAgenda";
 
 function Agendamento() {
-  const { user } = useContext(UserContext);
+  const { profissional, data, hora } = useContext(UserAgenda);
+
+  const formataData = (data: any) => {
+    let dia = new Date(data);
+    return `${dia.getDate()}/${dia.getMonth() + 1}`;
+  };
 
   return (
     <div>
@@ -62,19 +67,19 @@ function Agendamento() {
                           alt="Imagem do Profissional"
                         />
                         <TextoStyle>
-                          <p>Corte de cabelo</p>
-                          <span>Leila Macedo</span>
+                          <p>{profissional.servico.servico}</p>
+                          <span>{profissional.profissional.nome}</span>
                         </TextoStyle>
                       </div>
                       <hr />
                       <TextoStyle className="segundaparte">
                         <div>
                           <span>Dia</span>
-                          <p>19/12</p>
+                          <p>{formataData(data)}</p>
                         </div>
                         <div>
                           <span>Horário</span>
-                          <p>14:00h</p>
+                          <p>{hora}</p>
                         </div>
                       </TextoStyle>
                       <Button type="submit" className="m-3">
