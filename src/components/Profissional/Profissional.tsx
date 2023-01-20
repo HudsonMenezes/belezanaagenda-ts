@@ -1,6 +1,7 @@
 import fotoprofissional from "../../assets/profissional.png";
 import { ProfissionalProps } from "../../models/models";
 import { ProfissionalStyle } from "./Styles";
+import { CiCalendarDate } from "react-icons/ci";
 
 function Profissional({ nome, servico }: ProfissionalProps) {
   return (
@@ -12,7 +13,9 @@ function Profissional({ nome, servico }: ProfissionalProps) {
         <span>{nome}</span>
         <p>{servico}</p>
       </div>
-      <div className="icone">icone</div>
+      <div className="icone">
+        <CiCalendarDate />
+      </div>
     </ProfissionalStyle>
   );
 }

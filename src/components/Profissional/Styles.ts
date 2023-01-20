@@ -19,6 +19,8 @@ export const ProfissionalStyle = styled.section`
     align-items: center;
     width: 85px;
     height: 100%;
+    font-size: 35px;
+    color: #742092;
     border-radius: 0 20px 20px 0;
     background-color: #ffc973;
   }
