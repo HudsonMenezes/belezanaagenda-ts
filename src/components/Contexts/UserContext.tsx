@@ -60,11 +60,10 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
       setError(null);
       setLoading(true);
       const response = await loginCliente({ email, senha });
-      if (response.status !== 201)
+      if (response.status !== 200)
         throw new Error(`Error: ${response.statusText}`);
       const token = response.data.token;
       const id = response.data.cliente._id;
-      // await getUser(id);
       setToken("token", token);
       setId("id", id);
       navigate("/agenda");
