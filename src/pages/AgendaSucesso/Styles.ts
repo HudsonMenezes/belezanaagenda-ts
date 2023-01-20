@@ -108,6 +108,11 @@ export const Sectionsucess = styled.section`
     background-color: #c858ba;
     color: #fff;
   }
+  .btnSucess:hover,
+  .btnSucess:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #c59, 0 0 0 4px #c49;
+  }
 
   @media (max-width: 40rem) {
     .container-grid {
