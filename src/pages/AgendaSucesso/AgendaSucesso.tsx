@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 
@@ -7,8 +7,20 @@ import atendente from "../../assets/profissional.png";
 import calendario from "../../assets/Calendar.png";
 
 import { ConfirmImgStyle } from "./Styles";
+import { UserAgenda } from "../../components/Contexts/UserAgenda";
+import { useNavigate } from "react-router-dom";
 
 function AgendaSucesso() {
+  const { profissional, data, hora } = useContext(UserAgenda);
+  const navigate = useNavigate();
+  const formataData = (data: any) => {
+    let dia = new Date(data);
+    return `${dia.getDate()}-${dia.getMonth() + 1}`;
+  };
+
+  function handleSubmit() {
+    navigate("/agenda");
+  }
   return (
     <div>
       <Header />
@@ -23,13 +35,28 @@ function AgendaSucesso() {
               <h4>Enviamos um lembrete para o seu celular</h4>
               <hr />
               <img src={atendente} alt="Atendente" />
-              <h3>Corte de cabelo com</h3>
-              <h4>Leila Macedo</h4>
-              <img src={calendario} alt="Calendario" />
-              <h5>DIA 10-01</h5>
-              <p>Salão da Ane</p>
+              {/* {profissional? (<h3></h3>)} */}
+              <h3>{profissional.servico.servico} com</h3>
+              <h4>{profissional.profissional.nome}</h4>
+              <div className="agenda d-flex justify-content-center align-items-center gap-3">
+                <div className="agDia d-flex">
+                  <img src={calendario} alt="Calendario" />
+                  <h5 className="m-0">
+                    DIA <br />
+                    {formataData(data)}
+                  </h5>
+                </div>
+                <div className="agHorario d-flex">
+                  <img src={calendario} alt="Calendario" />
+                  <h5 className="m-0">
+                    HORÁRIO <br />
+                    {hora}
+                  </h5>
+                </div>
+              </div>
+              <p className="mt-2">Salão da Ane</p>
               <span>Rua Óbidus, nº101, Sala 7, Cidade Velha, Belém</span>
-              <Button type="submit" className="mt-4">
+              <Button onClick={handleSubmit} type="submit" className="mt-4">
                 Marcar mais um horário
               </Button>
             </div>
