@@ -34,3 +34,7 @@ export interface ProfissionalServicoProps {
     servico: string;
   };
 }
+export interface AgendaCriarProps {
+  payload: FormData;
+  token: string;
+}

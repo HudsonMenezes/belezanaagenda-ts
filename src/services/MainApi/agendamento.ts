@@ -1,10 +1,15 @@
+import { AxiosResponse } from "axios";
+import { AgendaCriarProps } from "../../models/models";
 import baseApi from "./config";
-
-// interface ProfissionalPayload {
-//   nome: string;
-//   servico: string;
-// }
 
 export function ProfissionalServico() {
   return baseApi.get("/profissionalservico");
+}
+
+export function agendaCriar(payload: AgendaCriarProps): Promise<AxiosResponse> {
+  return baseApi.post("/agenda", payload.payload, {
+    headers: {
+      Authorization: `Bearer ${payload.token}`,
+    },
+  });
 }

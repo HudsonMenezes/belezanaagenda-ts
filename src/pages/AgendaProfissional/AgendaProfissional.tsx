@@ -9,16 +9,29 @@ import { listarProfissionalServicoId } from "../../services/MainApi/servicos";
 import { SectionStepThree } from "./style";
 import Profissional from "../../components/Profissional/Profissional";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../components/Contexts/UserContext";
 
 function AgendaProfissional() {
-  const { service, hora, data, setProfissional, profissional } =
-    useContext(UserAgenda);
-  let id = service;
+  const {
+    service,
+    hora,
+    data,
+    setProfissional,
+    profissional,
+    criarNovaAgenda,
+  } = useContext(UserAgenda);
+  const { id, token } = useContext(UserContext);
+  let idProf = service;
+
+  const formataData = (data: any) => {
+    let dia = new Date(data);
+    return `${dia.getFullYear()}/${dia.getMonth() + 1}/${dia.getDate()}`;
+  };
 
   useEffect(() => {
     const data = async () => {
       try {
-        const response = await listarProfissionalServicoId(id);
+        const response = await listarProfissionalServicoId(idProf);
         setProfissional(response.data);
         console.log(response.data);
       } catch (error) {
@@ -26,12 +39,16 @@ function AgendaProfissional() {
       }
     };
     data();
-  }, [setProfissional, id]);
+  }, [setProfissional, idProf]);
 
   function handleSubmit() {
-    console.log(service);
-    console.log(hora);
-    console.log(data.toISOString());
+    const payload = new FormData();
+
+    payload.append("profissionalServico", idProf);
+    payload.append("cliente", id);
+    payload.append("data", `${formataData(data)} ${hora}`);
+
+    criarNovaAgenda(payload, token);
   }
   return (
     <SectionStepThree>
