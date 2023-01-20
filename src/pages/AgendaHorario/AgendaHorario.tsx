@@ -48,7 +48,7 @@ function AgendaHorario() {
                 borderRadius: 50,
                 fontWeight: 4,
               }}
-              activeStep={0}
+              activeStep={1}
             />
           </div>
           <div className="hourPicker">
