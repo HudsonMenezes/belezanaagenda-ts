@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import backarow from "../../assets/back.png";
@@ -9,7 +9,6 @@ import { listarProfissionalServicoId } from "../../services/MainApi/servicos";
 import Profissional from "../../components/Profissional/Profissional";
 
 function AgendaProfissional() {
-  // const [profiss, setProfiss] = useState<ProfissionalServicoProps[]>([]);
   const { service, hora, data, setProfissional, profissional } =
     useContext(UserAgenda);
   let id = service;
