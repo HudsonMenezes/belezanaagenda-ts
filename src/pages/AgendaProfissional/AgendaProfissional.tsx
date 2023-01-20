@@ -33,9 +33,8 @@ function AgendaProfissional() {
       try {
         const response = await listarProfissionalServicoId(idProf);
         setProfissional(response.data);
-        console.log(response.data);
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     data();

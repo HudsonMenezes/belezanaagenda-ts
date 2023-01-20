@@ -28,7 +28,7 @@ const Servicos = () => {
         const response = await listarProfissionalServico();
         setServi(response.data);
       } catch (err) {
-        console.log(err);
+        alert(err);
       }
     };
     listaServicos();

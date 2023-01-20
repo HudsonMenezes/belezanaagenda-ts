@@ -25,7 +25,6 @@ export const UserAgendaStorage = ({ children }: { children: ReactNode }) => {
   async function criarNovaAgenda(payload: FormData, token: string) {
     try {
       const response = await agendaCriar({ payload, token });
-      console.log(response.data);
       if (response.status !== 201)
         throw new Error(`Error: ${response.statusText}`);
       navigate("/sucesso");

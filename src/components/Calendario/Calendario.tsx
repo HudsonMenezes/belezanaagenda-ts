@@ -16,7 +16,6 @@ const modifiersClassNames = {
 };
 export default function DatePicker() {
   const { data, setData } = useContext(UserAgenda);
-  // console.log(data.toISOString());
 
   return (
     <CalendarioStyle>
