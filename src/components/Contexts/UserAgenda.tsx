@@ -1,4 +1,5 @@
 import { createContext, Dispatch, ReactNode, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProfissionalServicoProps } from "../../models/models";
 import { agendaCriar } from "../../services/MainApi/agendamento";
 type ContextAgenda = {
@@ -19,13 +20,18 @@ export const UserAgendaStorage = ({ children }: { children: ReactNode }) => {
   const [hora, setHora] = useState<any>();
   const [service, setService] = useState<any>();
   const [profissional, setProfissional] = useState<ProfissionalServicoProps>();
+  const navigate = useNavigate();
 
   async function criarNovaAgenda(payload: FormData, token: string) {
     try {
       const response = await agendaCriar({ payload, token });
       console.log(response.data);
-    } catch (err) {
-      alert(err);
+      if (response.status !== 201)
+        throw new Error(`Error: ${response.statusText}`);
+      navigate("/sucesso");
+    } catch (err: any) {
+      const message = err.response.data;
+      alert(message);
     } finally {
       //..
     }
