@@ -56,7 +56,7 @@ const Sidebar = () => {
               <hr />
               <Link
                 className={`${mobile ? "nav-link-mobile" : "nav-link px-2 "}`}
-                to="/agenda"
+                to="/perfil"
               >
                 <CiCalendarDate />
                 <span className="ms-1 d-xl-none d-md-none nav-iten">
@@ -66,7 +66,7 @@ const Sidebar = () => {
               <hr />
               <Link
                 className={`${mobile ? "nav-link-mobile" : "nav-link px-2 "}`}
-                to="/projetos"
+                to="/agenda"
               >
                 <CiHeart />
                 <span className="ms-1 d-xl-none d-md-none nav-iten">
@@ -76,7 +76,7 @@ const Sidebar = () => {
               <hr />
               <Link
                 className={`${mobile ? "nav-link-mobile" : "nav-link px-2 "}`}
-                to="/sobre"
+                to="#"
               >
                 <CiStar />
                 <span className="ms-1 d-xl-none d-md-none nav-iten">

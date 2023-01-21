@@ -23,15 +23,15 @@ export const SidebarStyle = styled.aside`
     /* top: 0; */
     bottom: -165%;
     width: 100vw;
-    height: 25rem;
+    height: 100vh;
     background-color: #ffc973;
   }
   .nav-links-mobile {
-    height: 22rem;
+    /* background-color: red; */
+    margin: 2rem 0 1rem;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    justify-content: end;
   }
   .nav-links {
     height: 92.8vh;
@@ -107,9 +107,9 @@ export const SidebarStyle = styled.aside`
       margin: 0.3rem;
     }
   }
-  @media (max-width: 375px) {
+  @media (max-width: 393px) {
     .aside-wrapper-mobile {
-      bottom: -90%;
+      bottom: -80%;
     }
   }
 `;
