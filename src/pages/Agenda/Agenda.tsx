@@ -26,38 +26,38 @@ function Agenda() {
               <img src={logoSalao} alt="Logo Salão" className="logosalao" />
             </div>
           </section>
-          <div className="container-fluid">
-            <section>
+          <div className="container-fluid p-0">
+            <section className="ps-2">
               <p>
                 <h1>Salão Novo Visual</h1>
                 <h4>Rua Obidus, nº101, Sala 7, Cidade Velha, Belém</h4>
               </p>
             </section>
             <br />
-            <section>
+            <section className="ps-2">
               <p>
                 <h3>Oi, {user?.data.nome}</h3>O que vamos agendar hoje?
               </p>
             </section>
             <section className="servicos container-fluid">
-              <div className="row">
+              <div className="row d-flex justify-content-center align-items-sm-center">
                 <Servicos />
               </div>
             </section>
-            <section>
+            <section className="ps-2">
               <p>
                 <h2>CONHEÇA</h2>
                 <span className="spanEquipe">a nossa equipe</span>
               </p>
             </section>
             <section className="servicos">
-              <div className="row">
-                <div className="col">
-                  <div className="equipeItem d-flex align-items-center">
+              <div className="row row-cols-sm-2 row-cols-md-2 g-1">
+                <div className="col d-flex justify-content-center justify-content-md-start ">
+                  <div className=" equipeItem d-flex justify-content-center align-items-center mt-2">
                     <div>
                       <img alt="Joana Silva" src={equipe1} />
                     </div>
-                    <div className="m-auto">
+                    <div className="ps-1 ps-1">
                       <h3>Joana Silva</h3>
                       <div>
                         Cabelereira <br />
@@ -82,12 +82,12 @@ function Agenda() {
                     </div>
                   </div>
                 </div>
-                <div className="col">
-                  <div className="equipeItem d-flex align-items-center">
+                <div className="col d-flex justify-content-center justify-content-md-end">
+                  <div className="equipeItem d-flex align-items-center mt-2">
                     <div>
                       <img alt="Joana Silva" src={equipe2} />
                     </div>
-                    <div className="m-auto">
+                    <div className="m-auto ps-1">
                       <h3>Joana Silva</h3>
                       <div>
                         Cabelereira <br />
@@ -112,12 +112,12 @@ function Agenda() {
                     </div>
                   </div>
                 </div>
-                <div className="col">
-                  <div className="equipeItem d-flex align-items-center">
+                <div className="col d-flex justify-content-center justify-content-md-start">
+                  <div className="equipeItem d-flex align-items-center mt-2">
                     <div>
                       <img alt="Joana Silva" src={equipe3} />
                     </div>
-                    <div className="m-auto">
+                    <div className="m-auto ps-1">
                       <h3>Joana Silva</h3>
                       <div>
                         Cabelereira <br />
@@ -142,12 +142,12 @@ function Agenda() {
                     </div>
                   </div>
                 </div>
-                <div className="col">
-                  <div className="equipeItem d-flex align-items-center">
+                <div className="col d-flex justify-content-center justify-content-md-end">
+                  <div className="equipeItem d-flex align-items-center mt-2">
                     <div>
                       <img alt="Joana Silva" src={equipe4} />
                     </div>
-                    <div className="m-auto">
+                    <div className="m-auto ps-1">
                       <h3>Joana Silva</h3>
                       <div>
                         Cabelereira <br />

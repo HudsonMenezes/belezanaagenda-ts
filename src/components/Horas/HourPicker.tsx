@@ -1,4 +1,4 @@
-import BtnHora from "../btnHora/BtnHora";
+import BtnHora from "../BtnHora/BtnHora";
 
 const HourPicker = () => {
   return (
