@@ -20,6 +20,17 @@ const UserHeaderStyle = styled.div`
     padding-left: 2rem;
     margin-top: 1rem;
   }
+  .animeLeft {
+    opacity: 0;
+    transform: translateX((-20px));
+    animation: animeLeft 0.3s forwards;
+  }
+  @keyframes animeLeft {
+    to {
+      opacity: 1;
+      transform: initial;
+    }
+  }
   @media (min-width: 40rem) {
     .title-step {
       position: relative;

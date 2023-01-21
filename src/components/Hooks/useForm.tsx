@@ -37,7 +37,7 @@ type typeInput = "nome" | "email" | "number" | "login" | "senha" | undefined;
 interface Response {
   value: any;
   erro: string | undefined;
-  validate: () => boolean;
+  validate: () => boolean | string;
   onBlur: () => boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }

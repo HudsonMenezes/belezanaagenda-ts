@@ -6,6 +6,7 @@ const BtnHoraStyled = styled.button`
   font-size: 14px;
   padding: 0.5rem 3.75rem;
   background-color: #fff;
+  color: #404040;
   border: 1px solid #ffc973;
   border-radius: 1.25rem;
 

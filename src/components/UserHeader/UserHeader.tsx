@@ -68,9 +68,9 @@ const UserHeader = () => {
           />
         </div>
       </div>
-      <div className="title-step">
-        <h1 className="title">{title}</h1>
-        <span className="span">
+      <div className="title-step ">
+        <h1 className="title animeLeft">{title}</h1>
+        <span className="span animeLeft">
           {span}
           <br />
           {p}

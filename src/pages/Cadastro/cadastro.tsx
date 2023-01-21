@@ -1,5 +1,5 @@
 import Input from "../../components/Input/Input";
-import { FormEvent, useContext } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { FormStyle, LogoStyle, FundoLogin, FundoLogin2 } from "./styles";
 import logo from "../../assets/logo2.png";
 import Error from "../../components/Helper/Error";
@@ -16,19 +16,34 @@ function Cadastro() {
   const email = useForm("email");
   const senha = useForm("senha");
 
-  const { userLogin, error, loading } = useContext(UserContext);
+  const { userLogin } = useContext(UserContext);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
-    const response = await cadastroCliente({
-      nome: nome.value,
-      email: email.value,
-      senha: senha.value,
-      telefone: telefone.value,
-    });
-
-    if (response.status === 201) userLogin(email.value, senha.value);
+    if (
+      nome.validate() &&
+      telefone.validate() &&
+      email.validate() &&
+      senha.validate()
+    )
+      try {
+        setError(null);
+        setLoading(true);
+        const response = await cadastroCliente({
+          nome: nome.value,
+          email: email.value,
+          senha: senha.value,
+          telefone: telefone.value,
+        });
+        if (response.status === 201) userLogin(email.value, senha.value);
+      } catch (err: any) {
+        const message = err.response.data;
+        setError(message);
+      } finally {
+        setLoading(false);
+      }
   };
 
   return (
