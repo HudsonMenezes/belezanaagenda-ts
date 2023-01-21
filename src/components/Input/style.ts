@@ -26,7 +26,8 @@ const Style = styled.div`
   }
 
   > label {
-    display: flex;
+    display: block;
+    padding-right: 230px;
     color: #fff;
     font-size: 1rem;
     line-height: 1;
