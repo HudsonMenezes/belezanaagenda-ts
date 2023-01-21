@@ -52,44 +52,37 @@ export const SectionStepTwo = styled.section`
 
   .container-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 865px;
-  }
-  .hourPicker {
-    margin-top: 20px;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
   }
 
-  .textStep {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffc973;
-    min-height: 90%;
-  }
-
-  @media (max-width: 40rem) {
+  @media (min-width: 40rem) {
     .container-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     .textStep {
-      background-color: transparent;
+      background-color: #ffc973;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .arrow {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 50vw;
       position: relative;
-      bottom: -60%;
-      right: 18%;
+      bottom: 35vh;
+      left: 50vw;
+      margin-top: 1.8rem;
     }
     .hourPicker {
-      margin-top: 0;
-      height: auto;
-      position: relative;
-      top: -10%;
-    }
-    .step {
-      position: relative;
-      top: -18%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .backButton {
       position: relative;
-      top: -230px;
+      right: 7vw;
     }
   }
 `;

@@ -1,9 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { ProfissionalServicoProps, ServicosProps } from "../../models/models";
-import {
-  listarProfissionalServico,
-  listarServico,
-} from "../../services/MainApi/servicos";
+import { ProfissionalServicoProps } from "../../models/models";
+import { listarProfissionalServico } from "../../services/MainApi/servicos";
 import { Link } from "react-router-dom";
 import corte from "../../assets/corte.png";
 import escova from "../../assets/escova.png";

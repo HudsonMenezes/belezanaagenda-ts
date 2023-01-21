@@ -1,15 +1,12 @@
 import { useContext, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
-import backarow from "../../assets/back.png";
-import { Stepper } from "react-form-stepper";
-import { TextoPasso } from "../AgendaData/Styles";
 import { UserAgenda } from "../../components/Contexts/UserAgenda";
 import { listarProfissionalServicoId } from "../../services/MainApi/servicos";
 import { SectionStepThree } from "./style";
 import Profissional from "../../components/Profissional/Profissional";
-import { Link } from "react-router-dom";
 import { UserContext } from "../../components/Contexts/UserContext";
+import UserHeader from "../../components/UserHeader/UserHeader";
 
 function AgendaProfissional() {
   const {
@@ -54,48 +51,18 @@ function AgendaProfissional() {
       <Header />
       <div className="container-grid">
         <div className="textStep">
-          <TextoPasso>
-            3º PASSO <br />
-            <span>Escolha o profissional</span>
-          </TextoPasso>
+          <UserHeader />
         </div>
-        <div className="arrow">
-          <div className="step">
-            <Stepper
-              steps={[{ label: "" }, { label: "" }, { label: "" }]}
-              styleConfig={{
-                activeBgColor: "#ffc973",
-                activeTextColor: "#000",
-                inactiveBgColor: "#eaeaea",
-                inactiveTextColor: "#000",
-                completedBgColor: "#ffc973",
-                completedTextColor: "#000",
-                size: "3em",
-                circleFontSize: 16,
-                labelFontSize: 14,
-                borderRadius: 50,
-                fontWeight: 4,
-              }}
-              activeStep={2}
+        <div className="profissionalPicker">
+          {profissional && (
+            <Profissional
+              nome={profissional.profissional?.nome}
+              servico={profissional.servico?.servico}
             />
-          </div>
-          <div className="profissionalPicker">
-            <div className="backButton">
-              <img src={backarow} alt="Voltar" className="m-2" />
-              <Link to="/horario">Voltar</Link>
-            </div>
-            <div className="reative">
-              {profissional && (
-                <Profissional
-                  nome={profissional.profissional?.nome}
-                  servico={profissional.servico?.servico}
-                />
-              )}
-              <Button onClick={handleSubmit} type="submit" className="mt-5">
-                Confirmar
-              </Button>
-            </div>
-          </div>
+          )}
+          <Button onClick={handleSubmit} type="submit" className="mt-5">
+            Confirmar
+          </Button>
         </div>
       </div>
     </SectionStepThree>

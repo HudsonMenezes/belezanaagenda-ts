@@ -21,44 +21,44 @@ export const TextoPasso = styled.p`
 `;
 export const SectionStepOne = styled.section`
   width: 100%;
-  height: auto;
+  min-height: 100vh;
   box-sizing: border-box;
   background-color: #fff;
 
   .container-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 865px;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
   }
-
-  .textStep {
+  .datePicker {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: #ffc973;
-    min-height: 90%;
+    height: 100%;
   }
 
-  @media (max-width: 40rem) {
+  @media (min-width: 40rem) {
     .container-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     .textStep {
-      background-color: transparent;
-      position: relative;
-      bottom: -90%;
-      right: 21%;
+      background-color: #ffc973;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .datePicker {
-      height: auto;
-    }
-    .step {
+    .arrow {
+      display: flex;
+      flex-direction: column-reverse;
+      /* background-color: red; */
+      width: 50vw;
       position: relative;
-      top: -9%;
+      bottom: 35vh;
+      left: 50vw;
     }
     .backButton {
       position: relative;
-      top: -230px;
+      right: 7vw;
     }
   }
 `;

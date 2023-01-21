@@ -7,47 +7,44 @@ export const SectionStepThree = styled.section`
 
   .container-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 865px;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
   }
-  .reative {
+  .profissionalPicker {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
   }
 
-  .textStep {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffc973;
-    min-height: 90%;
-  }
-
-  @media (max-width: 40rem) {
+  @media (min-width: 40rem) {
     .container-grid {
-      grid-template-columns: 1fr;
-    }
-    .textStep {
-      background-color: transparent;
-      height: 0px;
-      position: relative;
-      bottom: -52%;
-      right: 15%;
+      grid-template-columns: 1fr 1fr;
     }
 
     .profissionalPicker {
-      height: auto;
+      height: 100vh;
+      justify-content: center;
     }
-    .step {
+    .textStep {
+      background-color: #ffc973;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .arrow {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 50vw;
       position: relative;
-      top: -24%;
+      bottom: 35vh;
+      left: 50vw;
+      margin-top: 1.8rem;
     }
     .backButton {
       position: relative;
-      top: -325px;
+      right: 7vw;
     }
   }
 `;

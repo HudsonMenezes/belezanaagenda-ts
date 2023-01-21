@@ -18,7 +18,7 @@ function AgendaSucesso() {
   };
 
   function handleSubmit() {
-    navigate("/agenda");
+    navigate("/perfil");
   }
 
   return (
