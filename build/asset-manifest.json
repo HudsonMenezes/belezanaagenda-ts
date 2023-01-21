@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.53d68ea2.css",
-    "main.js": "/static/js/main.bb704100.js",
+    "main.css": "/static/css/main.b504dfd6.css",
+    "main.js": "/static/js/main.a67de750.js",
     "static/js/787.6814fe6a.chunk.js": "/static/js/787.6814fe6a.chunk.js",
     "static/media/capasalao.png": "/static/media/capasalao.5ff8e8e2909f6419cd0e.png",
     "static/media/fundo2.png": "/static/media/fundo2.731bc4b7ad8f316f40e2.png",
@@ -12,12 +12,12 @@
     "static/media/equipe4.png": "/static/media/equipe4.594210e120475fa401db.png",
     "static/media/profissional.png": "/static/media/profissional.22ddbba3635543f08af8.png",
     "index.html": "/index.html",
-    "main.53d68ea2.css.map": "/static/css/main.53d68ea2.css.map",
-    "main.bb704100.js.map": "/static/js/main.bb704100.js.map",
+    "main.b504dfd6.css.map": "/static/css/main.b504dfd6.css.map",
+    "main.a67de750.js.map": "/static/js/main.a67de750.js.map",
     "787.6814fe6a.chunk.js.map": "/static/js/787.6814fe6a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.53d68ea2.css",
-    "static/js/main.bb704100.js"
+    "static/css/main.b504dfd6.css",
+    "static/js/main.a67de750.js"
   ]
 }
